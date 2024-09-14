@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Scss/DestructeurDeDocuments.scss';
 
+
 const Machines = () => {
   const machines = [
     { id: 1, name: 'Machine 1', description: 'Description de la machine 1', image: '/images/machine1.jpg' },

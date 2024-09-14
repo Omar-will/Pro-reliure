@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../Scss/MachineDetails.scss';
 
+
 const machines = [
   { id: 1, name: 'Machine 1', description: 'Description de la machine 1', image: '/images/machine1.jpg' },
   { id: 2, name: 'Machine 2', description: 'Description de la machine 2', image: '/images/machine2.jpg' },

@@ -25,7 +25,7 @@ const Footer = () => {
 
       <div className="section">
         <a href="/mentions-legales">Mentions légales</a>
-        <a href="/conditions-generales">Conditions générales de vente</a>
+        <a href="/conditions-generales-de-vente">Conditions générales de vente</a>
       </div>
     </footer>
   );

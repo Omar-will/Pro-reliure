@@ -41,7 +41,7 @@ const Contact = () => {
           <input type="file" />
         </label>
           <label>J'accepte la politique de confidentialité.
-          <input type="checkbox" required />
+          <input  className= "inputCase" type="checkbox" required />
           </label>
         <button type="submit">Envoyer</button>
       </form>
