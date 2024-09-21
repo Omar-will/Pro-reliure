@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../Scss/Breadcrumb.scss'; // Ton fichier SCSS pour styliser le breadcrumb
+import '../Scss/Breadcrumb.scss'; 
 
 const Breadcrumb = () => {
   const location = useLocation();
@@ -10,11 +10,11 @@ const Breadcrumb = () => {
     <nav aria-label="breadcrumb">
       <ul className="breadcrumb">
         {pathnames.length === 0 ? (
-          // Ne pas afficher "Accueil" si nous sommes déjà sur la page d'accueil
+          
           <li>Accueil</li>
         ) : (
           <li>
-            <Link to="/Accueil">Accueil</Link>
+            <Link to="/">Accueil</Link>
           </li>
         )}
         {pathnames.map((value, index) => {

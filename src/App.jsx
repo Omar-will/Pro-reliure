@@ -20,7 +20,7 @@ function App() {
       <Breadcrumb />
       <main>
         <Routes>
-        <Route path="/Accueil" element={<Accueil />} />
+        <Route path="/" element={<Accueil />} />
           {/* <Route path="/NosServices" element={<NosServices />} /> */}
           <Route path="/DestructeurDeDocuments" element={<DestructeurDeDocuments />} />
           <Route path="/machines/:id" element={<MachineDetails />} />

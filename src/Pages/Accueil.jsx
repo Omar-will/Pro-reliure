@@ -5,7 +5,6 @@ const images = [
   'images/image1.webp',
   'images/image2.webp',
   'images/image3.webp',
-  // Ajoutez plus d'images ici si nécessaire
 ];
 
 const Accueil = () => {

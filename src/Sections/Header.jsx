@@ -20,12 +20,12 @@ const Header = () => {
     <header className="navbar">
       <nav>
         <div className="logo">
-        <Link to="/Accueil">
+        <Link to="/">
           <img src="/images/thumbnail_logo-proreliure-achat-materiel-reliure-internet-removebg-preview.webp" alt="Logo" />
         </Link>
         </div>
         <ul className="nav-links">
-        <li><Link to="/Accueil">Accueil</Link></li>
+        <li><Link to="/">Accueil</Link></li>
           <li><Link to="/NosServices">Nos Services</Link></li>
           <li className="dropdown">
             <button className="dropdown-button" onClick={toggleDropdown}>

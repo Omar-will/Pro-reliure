@@ -14,15 +14,20 @@
   
   .carousel-caption {
     position: absolute;
-    bottom: 20px; /* Ajuste la position selon tes préférences */
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Voilé gris */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.7); 
     color: white;
-    padding: 20px;
+    padding: 15px 30px; 
     text-align: center;
-    font-size: 18px;
+    font-size: 28px;
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
   }
+  
   
   .prev-button, .next-button {
     position: absolute;
