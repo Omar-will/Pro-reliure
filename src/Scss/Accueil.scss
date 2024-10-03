@@ -50,3 +50,106 @@
     right: 10px;
   }
   
+  .marques-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f3f3f3;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .marques-container h2 {
+    margin: 1rem;
+  }
+  
+  .marques-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: defilement 15s linear infinite;
+  }
+  
+  .marques-content img {
+    width: 150px; /* Ajuste la taille des images à ta convenance */
+    margin: 0 20px;
+  }
+  
+  @keyframes defilement {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .services-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    background-color: #f4f4f4;
+  }
+  
+  .service-item {
+    text-align: center;
+    width: 200px;
+    margin: 20px;
+  }
+  
+  .service-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 5px solid transparent; /* Bordure par défaut */
+  }
+  
+  /* Couleurs spécifiques pour chaque cercle */
+  .green-border {
+    border-color: #21ed51; /* Vert */
+  }
+  
+  .fuchsia-border {
+    border-color: #fa1d66; /* Rose Fuchsia */
+  }
+  
+  .orange-border {
+    border-color: #ff6b01; /* Orange */
+  }
+  
+  .blue-border {
+    border-color: #30a1fd; /* Bleu */
+  }
+  
+  .service-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .service-item h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #b92121;
+    margin-right: 0rem;
+    white-space: nowrap;
+    align-items: center; /* Empêche la rupture de ligne */
+  }
+  
+  
+  .service-item p {
+    font-size: 18px;
+    color: #585858;
+    margin-top: 10px;
+    margin-right: 1rem; /* Réduit la marge droite */
+    font-weight: 600;
+    align-items: center;
+  }
+  

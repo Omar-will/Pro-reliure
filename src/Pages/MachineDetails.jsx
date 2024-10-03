@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../Scss/MachineDetails.scss';
 
+// Ajout des informations spécifiques pour la machine "Destructeur Ideal 4005"
 const machines = [
   {
-    id: 1,
+    id: 'id915',
     name: 'Destructeur de Bureau Ideal 4005',
     description: 'Destructeur centralisé de haut rendement, avec système de lubrification automatique, pour détruire jusqu’à 55 feuilles.',
     additionalDescription: 'Existe en modèles coupe fibres (C/F), coupe croisée (C/C), coupe micro (C/M) et super micro coupe (SM/C). Ouverture de 405 mm adaptée au format A3. Lubrification automatique des cylindres de coupe pour assurer un rendement régulier.',
@@ -69,17 +70,21 @@ const machines = [
   { id: 9, name: 'Machine 9', description: 'Description de la machine 9', image: '/images/machine9.jpg' },
   { id: 10, name: 'Machine 10', description: 'Description de la machine 10', image: '/images/machine10.jpg' },
   ];
+  // { id: 'id2', name: 'Machine 2', description: 'Description de la machine 2', image: '/images/machine2.jpg' },
+  // { id: 'id3', name: 'Machine 3', description: 'Description de la machine 3', image: '/images/machine3.jpg' },
+  // autres machines...
+
 
 const MachineDetails = () => {
-  const { id } = useParams();
-  const machine = machines.find((machine) => machine.id === parseInt(id));
-
-  const [selectedImage, setSelectedImage] = useState(machine ? machine.images[0] : '');
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
-  const [isAdditionalInfoOpen, setIsAdditionalInfoOpen] = useState(false);
+  const { id } = useParams(); // Récupère l'ID depuis les paramètres d'URL
+  const machine = machines.find((machine) => machine.id === id); // Recherche la machine avec l'ID correspondant
+  
+  const [selectedImage, setSelectedImage] = useState(machine ? machine.images[0] : ''); // Image sélectionnée
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false); // État pour la description
+  const [isAdditionalInfoOpen, setIsAdditionalInfoOpen] = useState(false); // État pour les infos supplémentaires
 
   if (!machine) {
-    return <h2>Machine non trouvée</h2>;
+    return <h2>Machine non trouvée</h2>; // Message d'erreur si la machine n'est pas trouvée
   }
 
   const toggleDescription = () => {
@@ -92,9 +97,12 @@ const MachineDetails = () => {
 
   return (
     <div className="machine-details">
+      {/* Grande image principale */}
       <div className="image-container">
         <img src={selectedImage} alt={machine.name} className="machine-image" />
       </div>
+
+      {/* Miniatures des autres images */}
       <div className="image-thumbnails">
         {machine.images.map((image, index) => (
           <img

@@ -1,30 +1,60 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import '../Scss/DestructeurDeDocuments.scss';
 
+// Configuration Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyAzf5uhhb6jaF46e6SsW46SlHYVHPetWCk",
+  authDomain: "stock-proreliure.firebaseapp.com",
+  projectId: "stock-proreliure",
+  storageBucket: "stock-proreliure.appspot.com",
+  messagingSenderId: "813766962774",
+  appId: "1:813766962774:web:e58d093f1b6a3d885f15f7",
+  measurementId: "G-15SVBHWPFH"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const Machines = () => {
-  const machines = [
-    { id: 1, name: 'Machine 1', description: 'Description de la machine 1', image: '/images/machine1.jpg' },
-    { id: 2, name: 'Machine 2', description: 'Description de la machine 2', image: '/images/machine2.jpg' },
-    { id: 3, name: 'Machine 3', description: 'Description de la machine 3', image: '/images/machine3.jpg' },
-    { id: 4, name: 'Machine 4', description: 'Description de la machine 4', image: '/images/machine4.jpg' },
-    { id: 5, name: 'Machine 5', description: 'Description de la machine 5', image: '/images/machine5.jpg' },
-    { id: 6, name: 'Machine 6', description: 'Description de la machine 6', image: '/images/machine6.jpg' },
-    { id: 7, name: 'Machine 7', description: 'Description de la machine 7', image: '/images/machine7.jpg' },
-    { id: 8, name: 'Machine 8', description: 'Description de la machine 8', image: '/images/machine8.jpg' },
-    { id: 9, name: 'Machine 9', description: 'Description de la machine 9', image: '/images/machine9.jpg' },
-    { id: 10, name: 'Machine 10', description: 'Description de la machine 10', image: '/images/machine10.jpg' },
-    { id: 11, name: 'Machine 11', description: 'Description de la machine 11', image: '/images/machine11.jpg' },
-    { id: 12, name: 'Machine 12', description: 'Description de la machine 12', image: '/images/machine12.jpg' },
-    { id: 13, name: 'Machine 13', description: 'Description de la machine 13', image: '/images/machine13.jpg' },
-  ];
-
+  const [machines, setMachines] = useState([]);
   const [activeTab, setActiveTab] = useState(1);
+  const { category } = useParams(); // Récupère la catégorie depuis l'URL
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+
+  useEffect(() => {
+    const fetchMachines = async () => {
+      try {
+        const machinesCollection = collection(db, 'machines');
+        const machinesSnapshot = await getDocs(machinesCollection);
+        const machinesList = machinesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // Affiche les machines récupérées pour vérification
+        console.log("Machines récupérées:", machinesList);
+
+        // Filtrer les machines par catégorie
+        if (category) {
+          const filteredMachines = machinesList.filter(machine => 
+            machine.categories && machine.categories.includes(category)
+          );
+          console.log("Machines filtrées:", filteredMachines); // Affiche les machines filtrées
+          setMachines(filteredMachines);
+        } else {
+          setMachines(machinesList); // Si aucune catégorie n'est sélectionnée, affiche toutes les machines
+        }
+      } catch (error) {
+        console.error("Error fetching machines: ", error);
+      }
+    };
+
+    fetchMachines();
+  }, [category]); // Met à jour le hook d'effet si la catégorie change
 
   return (
     <div className="machines-container">
@@ -39,11 +69,12 @@ const Machines = () => {
 
       {activeTab === 1 && (
         <div className="machines-list">
-          {machines.slice(0, 9).map((machine) => (
+          {machines.slice(0, 12).map((machine) => (
             <div className="machine-card" key={machine.id}>
               <img src={machine.image} alt={machine.name} className="machine-image" />
               <h3>{machine.name}</h3>
               <p>{machine.description}</p>
+              <p>Stock: {machine.stock}</p>
               <Link to={`/machines/${machine.id}`}>
                 <button>Voir le produit</button>
               </Link>
@@ -54,11 +85,12 @@ const Machines = () => {
 
       {activeTab === 2 && (
         <div className="machines-list">
-          {machines.slice(9).map((machine) => (
+          {machines.slice(12).map((machine) => (
             <div className="machine-card" key={machine.id}>
               <img src={machine.image} alt={machine.name} className="machine-image" />
               <h3>{machine.name}</h3>
               <p>{machine.description}</p>
+              <p>Stock: {machine.stock}</p>
               <Link to={`/machines/${machine.id}`}>
                 <button>Voir le produit</button>
               </Link>

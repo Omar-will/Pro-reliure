@@ -7,25 +7,26 @@ const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate(); 
 
-  const handleSearch = (query) => {
-    console.log('Recherche effectuée avec la requête :', query);
-  };
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
-    navigate('/DestructeurDeDocuments'); 
+  };
+
+  const handleCategoryClick = (category) => {
+    // Redirige vers la page avec la catégorie sélectionnée
+    navigate(`/DestructeurDeDocuments/${category}`);
+    setIsDropdownOpen(false); // Ferme le menu après la sélection
   };
 
   return (
     <header className="navbar">
       <nav>
         <div className="logo">
-        <Link to="/">
-          <img src="/images/thumbnail_logo-proreliure-achat-materiel-reliure-internet-removebg-preview.webp" alt="Logo" />
-        </Link>
+          <Link to="/">
+            <img src="/images/thumbnail_logo-proreliure-achat-materiel-reliure-internet-removebg-preview.webp" alt="Logo" />
+          </Link>
         </div>
         <ul className="nav-links">
-        <li><Link to="/">Accueil</Link></li>
+          <li><Link to="/">Accueil</Link></li>
           <li><Link to="/NosServices">Nos Services</Link></li>
           <li className="dropdown">
             <button className="dropdown-button" onClick={toggleDropdown}>
@@ -34,12 +35,12 @@ const Header = () => {
             </button>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
-                <li>Destructeurs individuels (4)</li>
-                <li>Destructeurs de bureau (9)</li>
-                <li>Destructeurs de haut rendement (6)</li>
-                <li>Destructeurs de forte capacité (9)</li>
-                <li>Destructeurs de médias (3)</li>
-                <li>LOCATION DESTRUCTEURS PAPIER (2)</li>
+                <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines (4)</li>
+                <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau ()</li>
+                <li onClick={() => handleCategoryClick('haut-rendement')}>Destructeurs de haut rendement (6)</li>
+                <li onClick={() => handleCategoryClick('forte-capacite')}>Destructeurs de forte capacité (9)</li>
+                <li onClick={() => handleCategoryClick('medias')}>Destructeurs de médias (3)</li>
+                <li onClick={() => handleCategoryClick('location')}>LOCATION DESTRUCTEURS PAPIER (2)</li>
               </ul>
             )}
           </li>
@@ -47,7 +48,7 @@ const Header = () => {
           <li><Link to="/Acces">Accès</Link></li>
           <li><Link to="/FAQ">FAQ</Link></li>
         </ul>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={(query) => console.log('Recherche effectuée avec la requête :', query)} />
       </nav>
     </header>
   );
