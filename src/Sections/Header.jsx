@@ -38,7 +38,7 @@ const Header = () => {
                 <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines (4)</li>
                 <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau ()</li>
                 <li onClick={() => handleCategoryClick('haut-rendement')}>Destructeurs de haut rendement (6)</li>
-                <li onClick={() => handleCategoryClick('forte-capacite')}>Destructeurs de forte capacité (9)</li>
+                <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité (9)</li>
                 <li onClick={() => handleCategoryClick('medias')}>Destructeurs de médias (3)</li>
                 <li onClick={() => handleCategoryClick('location')}>LOCATION DESTRUCTEURS PAPIER (2)</li>
               </ul>
