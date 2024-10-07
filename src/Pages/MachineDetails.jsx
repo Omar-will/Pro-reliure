@@ -76,9 +76,7 @@ const MachineDetails = () => {
       <div className="machine-info">
         <a href="/contact" className="quote-button">Obtenir un devis</a>
         <h2>{machine.name}</h2>
-
         <p className="machine-description">{machine.description}</p>
-
 
         {/* Description complète */}
         <div className="description-container">
@@ -121,7 +119,14 @@ const MachineDetails = () => {
           <h3 onClick={toggleAdditionalInfo} className="additional-info-toggle">
             Informations complémentaires {isAdditionalInfoOpen ? '-' : '+'}
           </h3>
-
+             {/* Lien vers le PDF */}
+                {machine.pdfUrl && (
+                  <div className="pdf-container">
+                      <a href={machine.pdfUrl} target="_blank" rel="noopener noreferrer">
+                        Voir la fiche produit
+                      </a>
+                  </div>
+                    )}
           {isAdditionalInfoOpen && (
             <div className="additional-info-content">
               <ul>
