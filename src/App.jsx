@@ -4,6 +4,7 @@ import Footer from './Sections/Footer.jsx';
 import Accueil from './Pages/Accueil.jsx';
 import Machines from './Pages/DestructeurDeDocuments.jsx';
 import MachineDetails from './Pages/MachineDetails.jsx';
+import SearchResults from './Pages/SearchResults.jsx'; // Importez votre composant SearchResults
 import Contact from './Pages/Contact.jsx';
 import FAQ from './Pages/FAQ.jsx';
 import MentionsLegales from './Sections/MentionsLegales.jsx';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/DestructeurDeDocuments/:category" element={<Machines />} />
           <Route path="/DestructeurDeDocuments" element={<Machines />} />
           <Route path="/machines/:id" element={<MachineDetails />} />
+          <Route path="/searchResults" element={<SearchResults />} /> {/* Ajoutez cette ligne */}
           <Route path="/Contact" element={<Contact />} />
           <Route path="/FAQ" element={<FAQ />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />

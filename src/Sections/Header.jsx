@@ -2,19 +2,65 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import '../Scss/Header.scss';
 import SearchBar from '../Components/SearchBar';
+import { getFirestore, collection, query as firebaseQuery, where, getDocs } from "firebase/firestore";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const db = getFirestore();
+
+  const handleSearch = async (searchQuery) => {
+    try {
+      const machinesRef = collection(db, 'machines');
+      
+      const nameQuery = firebaseQuery(
+        machinesRef, 
+        where('name', '>=', searchQuery),
+        where('name', '<=', searchQuery + '\uf8ff')
+      );
+
+      const categoryQuery = firebaseQuery(
+        machinesRef, 
+        where('categories', 'array-contains', searchQuery)
+      );
+
+      const keywordsQuery = firebaseQuery(
+        machinesRef, 
+        where('keywords', 'array-contains', searchQuery)
+      );
+
+      const [nameSnapshot, categorySnapshot, keywordsSnapshot] = await Promise.all([
+        getDocs(nameQuery), 
+        getDocs(categoryQuery),
+        getDocs(keywordsQuery)
+      ]);
+      
+      const uniqueResults = new Set();
+      const results = [];
+
+      [nameSnapshot, categorySnapshot, keywordsSnapshot].forEach(snapshot => {
+        snapshot.docs.forEach(doc => {
+          const data = doc.data();
+          if (!uniqueResults.has(data.id)) {
+            uniqueResults.add(data.id);
+            results.push(data);
+          }
+        });
+      });
+
+      navigate('/searchResults', { state: { results } });
+    } catch (error) {
+      console.error("Erreur lors de la recherche:", error);
+    }
+  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   const handleCategoryClick = (category) => {
-    // Redirige vers la page avec la catégorie sélectionnée
     navigate(`/DestructeurDeDocuments/${category}`);
-    setIsDropdownOpen(false); // Ferme le menu après la sélection
+    setIsDropdownOpen(false);
   };
 
   return (
@@ -48,7 +94,7 @@ const Header = () => {
           <li><Link to="/Acces">Accès</Link></li>
           <li><Link to="/FAQ">FAQ</Link></li>
         </ul>
-        <SearchBar onSearch={(query) => console.log('Recherche effectuée avec la requête :', query)} />
+        <SearchBar onSearch={handleSearch} />
       </nav>
     </header>
   );
