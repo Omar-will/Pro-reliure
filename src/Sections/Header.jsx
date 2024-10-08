@@ -81,13 +81,24 @@ const Header = () => {
             </button>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
-                <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines (4)</li>
-                <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau ()</li>
-                <li onClick={() => handleCategoryClick('haut-rendement')}>Destructeurs de haut rendement (6)</li>
-                <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité (9)</li>
-                <li onClick={() => handleCategoryClick('medias')}>Destructeurs de médias (3)</li>
-                <li onClick={() => handleCategoryClick('location')}>LOCATION DESTRUCTEURS PAPIER (2)</li>
-              </ul>
+              <div className="dropdown-section">
+                <li className="dropdown-title">Destructeur de documents</li>
+                <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines </li>
+                <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau </li>
+                <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité </li>
+              </div>
+              <div className="dropdown-section">
+                <li className="dropdown-title">Niveaux de sécurité</li>
+                <li onClick={() => handleCategoryClick('P-1')}>P-1 : Documents courants</li>
+                <li onClick={() => handleCategoryClick('P-2')}>P-2 : Documents internes</li>
+                <li onClick={() => handleCategoryClick('P-3')}>P-3 : Documents sensibles</li>
+                <li onClick={() => handleCategoryClick('P-4')}>P-4 : Documents confidentiels</li>
+                <li onClick={() => handleCategoryClick('P-5')}>P-5 : Documents ultra-confidentiels</li>
+                <li onClick={() => handleCategoryClick('P-6')}>P-6 : Documents secrets</li>
+                <li onClick={() => handleCategoryClick('P-7')}>P-7 : Documents ultra-secrets</li>
+              </div>
+            </ul>
+            
             )}
           </li>
           <li><Link to="/Contact">Contact</Link></li>

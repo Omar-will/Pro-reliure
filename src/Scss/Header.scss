@@ -71,18 +71,33 @@
       list-style: none;
       padding: 10px;
       margin: 0;
-      width: 200px;
+      width: auto; /* Permet aux colonnes d'avoir des largeurs dynamiques */
       border: 1px solid #ddd;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
       z-index: 1;
+      display: flex; /* Les éléments à l'intérieur seront disposés en ligne */
+      gap: 2px; /* Espace entre les colonnes */
+    }
+    
+    .dropdown-categories,
+    .dropdown-security-levels {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
     }
     
     .dropdown-menu li {
       padding: 8px;
       cursor: pointer;
+      white-space: nowrap;
     }
     
     .dropdown-menu li:hover {
       background-color: #f1f1f1;
+    }
+
+    .dropdown-title {
+      font-weight: 800;
+      pointer-events: none;
     }
     
