@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Sections/Header.jsx';
 import Footer from './Sections/Footer.jsx';
 import Accueil from './Pages/Accueil.jsx';
+import NosServices from './Pages/NosServices.jsx';
 import Machines from './Pages/DestructeurDeDocuments.jsx';
 import MachineDetails from './Pages/MachineDetails.jsx';
 import SearchResults from './Pages/SearchResults.jsx'; // Importez votre composant SearchResults
@@ -19,6 +20,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Accueil />} />
+          <Route path="/NosServices" element={<NosServices />} />
           <Route path="/DestructeurDeDocuments/:category" element={<Machines />} />
           <Route path="/DestructeurDeDocuments" element={<Machines />} />
           <Route path="/machines/:id" element={<MachineDetails />} />
