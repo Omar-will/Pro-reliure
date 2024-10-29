@@ -1,0 +1,117 @@
+.ideal-machines {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  
+    h1 {
+      color: black;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+  
+    h2 {
+      color: black;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #871825;
+      padding-bottom: 0.5rem;
+      animation: slideIn 1s ease-out forwards;
+    }
+  
+    h3 {
+      color: #871825;
+      font-size: 1.6rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      animation: slideIn 1s ease-out forwards;
+    }
+  
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #555;
+      animation: fadeInUp 0.8s ease-out forwards;
+  
+      &:hover {
+        color: #871825;
+        transition: color 0.3s;
+      }
+    }
+
+    .content-with-image {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    
+        p {
+          flex: 1;
+        }
+    
+        img {
+          width: 250px; 
+          height: auto;
+          margin-left: 20px;
+          flex-shrink: 0;
+          
+        }
+      }
+    
+  
+    // Sections styling
+    .office-shredders, .high-capacity-shredders {
+      background-color: #fff;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+  
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  
+    // Animations
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+    @keyframes slideIn {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  
+    @keyframes fadeInUp {
+      from { transform: translateY(10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  
+    // Responsive Design
+    @media (max-width: 768px) {
+      padding: 1rem;
+  
+      h1 {
+        font-size: 2rem;
+      }
+  
+      h2 {
+        font-size: 1.8rem;
+      }
+  
+      h3 {
+        font-size: 1.4rem;
+      }
+  
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+  

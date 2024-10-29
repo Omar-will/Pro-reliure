@@ -7,33 +7,29 @@ const FAQ = () => {
 
   const questions = [
     {
-      question: "Quelle est l'adresse de M. Sébastien Azanza ?",
-      answer: "M. Sébastien Azanza reçoit des patients aux adresses suivantes: 75 Rue du Pré aux Moutons, 78670 Villennes-sur-Seine, 130 Rue de la Roquette, 75011 Paris, 4 Allée de la Crète, 78670 Villennes-sur-Seine"
+      question: "Quel type de coupe est le plus adapté ?",
+      answer: "La coupe croisée est plus sécurisée que la coupe droite, idéale pour les documents confidentiels."
     },
     {
-      question: "Comment se préparer pour une consultation ?",
-      answer: "Il est recommandé de porter des vêtements confortables et d'éviter de manger un repas lourd juste avant la consultation."
+      question: "Quelle est la capacité de destruction ?",
+      answer: "Cela dépend des modèles, certains détruisent jusqu'à 20 feuilles à la fois, pratique pour les bureaux chargés."
     },
     {
-      question: "Combien de séances sont nécessaires ?",
-      answer: "Le nombre de séances dépend du problème traité. Certaines personnes ressentent un soulagement en une séance, tandis que d'autres peuvent nécessiter plusieurs consultations."
+      question: "Le destructeur peut-il gérer d'autres matériaux ?",
+      answer: "Certains modèles acceptent agrafes, trombones et même cartes de crédit."
     },
     {
-      question: "L'ostéopathie est-elle remboursée ?",
-      answer: "L'ostéopathie n'est généralement pas remboursée par la Sécurité Sociale, mais certaines mutuelles prennent en charge tout ou partie des consultations."
+      question: "Quelles options de sécurité offrent-ils ?",
+      answer: "Ils incluent souvent des capteurs de surcharge et de sécurité anti-bourrage."
     },
     {
-      question: "Quels sont les moyens de paiement acceptés par M.Sébastien Azanza ?",
-      answer:"M. Sébastien Azanza accepte les moyens de paiements suivants: Chèques et espèces. Cartes bancaires non acceptées."
+      question: "Quelle taille de bac de récupération est nécessaire ? ",
+      answer:"Un bac plus grand réduit la fréquence de vidage, essentiel dans les grands bureaux."
     },
     {
-      question: "Quelles sont les langues parlées par M.Sébastien Azanza ?",
-      answer:"Les langues qui peuvent être parlées avec M. Sébastien Azanza sont les suivantes : Allemand, Anglais et Français"
+      question: "Comment entretenir un destructeur de papier ?",
+      answer:"Utiliser de l'huile pour destructeurs et vider le bac régulièrement prolonge la durée de vie."
     },
-    {
-      question: "Est-ce que M.Sébastien Azanza accepte des nouveaux patients ?",
-      answer:"Oui, M. Sébastien Azanza accepte des nouveaux patients."
-    }, 
     
   ];
 

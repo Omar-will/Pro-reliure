@@ -76,34 +76,39 @@ const Header = () => {
           <li><Link to="/NosServices">Nos Services</Link></li>
           <li className="dropdown">
             <button className="dropdown-button" onClick={toggleDropdown}>
-              Destructeur de Documents (31)
+              Destructeur de Documents 
               <span className={`arrow ${isDropdownOpen ? 'up' : 'down'}`}></span>
             </button>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
-              <div className="dropdown-section">
-                <li className="dropdown-title">Destructeur de documents</li>
-                <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines </li>
-                <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau </li>
-                <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité </li>
-              </div>
-              <div className="dropdown-section">
-                <li className="dropdown-title">Niveaux de sécurité</li>
-                <li onClick={() => handleCategoryClick('P-1')}>P-1 : Documents courants</li>
-                <li onClick={() => handleCategoryClick('P-2')}>P-2 : Documents internes</li>
-                <li onClick={() => handleCategoryClick('P-3')}>P-3 : Documents sensibles</li>
-                <li onClick={() => handleCategoryClick('P-4')}>P-4 : Documents confidentiels</li>
-                <li onClick={() => handleCategoryClick('P-5')}>P-5 : Documents ultra-confidentiels</li>
-                <li onClick={() => handleCategoryClick('P-6')}>P-6 : Documents secrets</li>
-                <li onClick={() => handleCategoryClick('P-7')}>P-7 : Documents ultra-secrets</li>
-              </div>
-            </ul>
-            
+                <div className="dropdown-section">
+                  <li className="dropdown-title">Destructeur de documents</li>
+                  <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines </li>
+                  <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau </li>
+                  <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité </li>
+                </div>
+                <div className="dropdown-section">
+                  <li className="dropdown-title">Niveaux de sécurité</li>
+                  <li onClick={() => handleCategoryClick('P-1')}>P-1 : Documents courants</li>
+                  <li onClick={() => handleCategoryClick('P-2')}>P-2 : Documents internes</li>
+                  <li onClick={() => handleCategoryClick('P-3')}>P-3 : Documents sensibles</li>
+                  <li onClick={() => handleCategoryClick('P-4')}>P-4 : Documents confidentiels</li>
+                  <li onClick={() => handleCategoryClick('P-5')}>P-5 : Documents ultra-confidentiels</li>
+                  <li onClick={() => handleCategoryClick('P-6')}>P-6 : Documents secrets</li>
+                  <li onClick={() => handleCategoryClick('P-7')}>P-7 : Documents ultra-secrets</li>
+                </div>
+                <div className="dropdown-section">
+                  <li className="dropdown-title">Type de coupe</li>
+                  <li onClick={() => handleCategoryClick('Coupe croisée')}>Coupe croisée</li>
+                  <li onClick={() => handleCategoryClick('Coupe fibres')}>Coupe fibres</li>
+                </div>
+              </ul>
             )}
           </li>
+          <li><Link to="/Utilisation">Utilisation</Link></li>
           <li><Link to="/Contact">Contact</Link></li>
-          <li><Link to="/Acces">Accès</Link></li>
           <li><Link to="/FAQ">FAQ</Link></li>
+          <li className="phone-contact">Contact par téléphone : 06 52 52 81 51</li>
         </ul>
         <SearchBar onSearch={handleSearch} />
       </nav>

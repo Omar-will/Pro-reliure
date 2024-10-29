@@ -6,11 +6,13 @@ import NosServices from './Pages/NosServices.jsx';
 import Machines from './Pages/DestructeurDeDocuments.jsx';
 import MachineDetails from './Pages/MachineDetails.jsx';
 import SearchResults from './Pages/SearchResults.jsx'; // Importez votre composant SearchResults
+import Utilisation from './Pages/Utilisation.jsx';
 import Contact from './Pages/Contact.jsx';
 import FAQ from './Pages/FAQ.jsx';
 import MentionsLegales from './Sections/MentionsLegales.jsx';
 import ConditionsGeneralesDeVente from './Sections/ConditionsGeneralesDeVente.jsx';
 import Breadcrumb from './Components/Breadcrumb.jsx';
+// import './Scss/index.scss';
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path="/DestructeurDeDocuments" element={<Machines />} />
           <Route path="/machines/:id" element={<MachineDetails />} />
           <Route path="/searchResults" element={<SearchResults />} /> {/* Ajoutez cette ligne */}
+          <Route path="/Utilisation" element={<Utilisation />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/FAQ" element={<FAQ />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
