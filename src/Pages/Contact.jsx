@@ -11,6 +11,7 @@ const Contact = () => {
         <h4>Une expertise à votre service</h4>
         <p>Une expertise à votre service Nos experts sont à votre disposition pour vous conseiller sur l'utilisation optimale de vos destructeurs de documents, afin de garantir une performance maximale et une sécurité renforcée. </p>
         <p>Nous assurons également la fourniture de pièces détachées d’origine, pour un fonctionnement fiable et durable.</p>
+        <img src="/images/id1c.webp" alt="Service après-vente" className="service-image" />
       </div>
       <div className="contact-container">
         <div className="contact-info">

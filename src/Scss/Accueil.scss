@@ -111,8 +111,8 @@
 }
 
 .service-circle {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background-color: #fff;
   overflow: hidden;
@@ -158,4 +158,68 @@
   color: #585858;
   margin-top: 10px;
   font-weight: 600;
+}
+
+.new-arrivals-section,
+.popular-items-section {
+  margin: 20px;
+}
+
+.new-arrivals-content,
+.popular-items-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+
+.machine-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: calc(22.333% - 16px); /* Pour trois cartes par ligne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.machine-image {
+  width: 80%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.machine-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.machine-description {
+  color: #666;
+  margin: 10px 0;
+}
+
+.machine-price {
+  font-weight: bold;
+  color: #871825;
+  margin: 10px 0;
+}
+
+.add-to-cart-button {
+  background-color: #871825;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+  background-color: #a61a2e;
+}
+
+.no-items-message {
+  font-size: 1em;
+  color: #888;
+  text-align: center;
+}
 }

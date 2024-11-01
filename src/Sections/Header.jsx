@@ -34,7 +34,7 @@ const Header = () => {
         getDocs(categoryQuery),
         getDocs(keywordsQuery)
       ]);
-      
+
       const uniqueResults = new Set();
       const results = [];
 
@@ -48,7 +48,7 @@ const Header = () => {
         });
       });
 
-      navigate('/searchResults', { state: { results } });
+      navigate('/searchResults', { state: { results, searchQuery } });
     } catch (error) {
       console.error("Erreur lors de la recherche:", error);
     }
@@ -83,9 +83,9 @@ const Header = () => {
               <ul className="dropdown-menu">
                 <div className="dropdown-section">
                   <li className="dropdown-title">Destructeur de documents</li>
-                  <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines </li>
-                  <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau </li>
-                  <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité </li>
+                  <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines</li>
+                  <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau</li>
+                  <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité</li>
                 </div>
                 <div className="dropdown-section">
                   <li className="dropdown-title">Niveaux de sécurité</li>
@@ -101,6 +101,14 @@ const Header = () => {
                   <li className="dropdown-title">Type de coupe</li>
                   <li onClick={() => handleCategoryClick('Coupe croisée')}>Coupe croisée</li>
                   <li onClick={() => handleCategoryClick('Coupe fibres')}>Coupe fibres</li>
+                </div>
+                <div className="dropdown-section">
+                  <li className="dropdown-title">Accessoires</li>
+                  <li onClick={() => handleCategoryClick('Sacs plastique')}>Sacs plastique</li>
+                  <li onClick={() => handleCategoryClick("Bouteille d'huile de lubrification")}>Bouteille d'huile de lubrification</li>
+                  <li onClick={() => handleCategoryClick('Sacs en papier kraft')}>Sacs en papier kraft</li>
+                  <li onClick={() => handleCategoryClick('Fil de ligature')}>Fil de ligature</li>
+                  <li onClick={() => handleCategoryClick('Lingettes de nettoyage')}>Lingettes de nettoyage</li>
                 </div>
               </ul>
             )}

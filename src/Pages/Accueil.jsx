@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import '../Scss/Accueil.scss';
 
 const images = [
@@ -7,8 +10,24 @@ const images = [
   'images/image3.webp',
 ];
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAzf5uhhb6jaF46e6SsW46SlHYVHPetWCk",
+  authDomain: "stock-proreliure.firebaseapp.com",
+  projectId: "stock-proreliure",
+  storageBucket: "stock-proreliure.appspot.com",
+  messagingSenderId: "813766962774",
+  appId: "1:813766962774:web:e58d093f1b6a3d885f15f7",
+  measurementId: "G-15SVBHWPFH"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const Accueil = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [newArrivals, setNewArrivals] = useState([]);
+  const [popularItems, setPopularItems] = useState([]);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -19,12 +38,39 @@ const Accueil = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 5000); 
+    const interval = setInterval(handleNext, 5000);
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const fetchMachines = async () => {
+      try {
+        const snapshot = await getDocs(collection(db, 'machines'));
+        const machines = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // Vérifiez que dateAdded et popularity sont correctement interprétés
+        const filteredMachines = machines.filter(machine => machine.dateAdded && machine.popularity !== "");
+
+        // Trier les machines par dateAdded et popularity
+        const sortedNewArrivals = [...filteredMachines]
+          .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
+          .slice(0, 5);
+        const sortedPopularItems = [...filteredMachines]
+          .sort((a, b) => parseFloat(b.popularity) - parseFloat(a.popularity))
+          .slice(0, 5);
+
+        setNewArrivals(sortedNewArrivals);
+        setPopularItems(sortedPopularItems);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des machines : ", error);
+      }
+    };
+
+    fetchMachines();
+  }, []);
+
   return (
-    <div>
+    <div className="accueil-page">
       {/* Carousel */}
       <div className="carousel-container">
         <button className="prev-button" onClick={handlePrev}>❮</button>
@@ -34,7 +80,7 @@ const Accueil = () => {
           className="carousel-image active" 
         />
         <div className="carousel-caption">
-          <p>Protégez vos informations sensibles <br /> avec nos destructeurs de bureau performants, <br /> conçus pour une destruction rapide et sécurisée <br />de vos documents en toute confidentialité.</p>
+          <p>Protégez vos informations sensibles <br /> avec nos destructeurs de bureau performants, <br /> conçus pour une destruction rapide et sécurisée <br /> de vos documents en toute confidentialité.</p>
         </div>
         <button className="next-button" onClick={handleNext}>❯</button>
       </div>
@@ -73,14 +119,14 @@ const Accueil = () => {
         </div>
         <div className="service-item">
           <div className="service-circle fuchsia-border">
-            <img src="images/SAV.webp" alt="Matériel Reconditionné" />
+            <img src="images/Optimisation.webp" alt="Matériel Reconditionné" />
           </div>
           <h3>Optimisation d'Équipement</h3>
           <p>Réduisez vos dépenses en optant pour du matériel reconditionné pour vos besoins d'entreprise.</p>
         </div>
         <div className="service-item">
           <div className="service-circle orange-border">
-            <img src="images/sous_traitance.webp" alt="Sous-traitance" />
+            <img src="images/Solution.webp" alt="Sous-traitance" />
           </div>
           <h3>Solutions de Sous-traitance</h3>
           <p>Simplifiez la gestion de vos projets avec des services de sous-traitance, tout en profitant d’un service clé en main.</p>
@@ -89,8 +135,52 @@ const Accueil = () => {
           <div className="service-circle blue-border">
             <img src="images/time.webp" alt="Conseil des Experts" />
           </div>
-          <h3>Livraison</h3>
-          <p>Rapide et fiable pour toutes vos commandes dans et seulement toute l'Île-de-France.</p>
+          <h3>Livraison dans toutes l'IDF</h3>
+          <p>Un service rapide et fiable pour toutes vos commandes, exclusivement dans l’ensemble de l'Île-de-France.</p>
+        </div>
+      </div>
+
+      {/* Nouveautés */}
+      <div className="new-arrivals-section">
+        <h2>Nouveautés</h2>
+        <div className="new-arrivals-content">
+          {newArrivals.length > 0 ? (
+            newArrivals.map((machine) => (
+              <div key={machine.id} className="machine-card">
+                <img src={machine.image} alt={machine.name} className="machine-image" />
+                <h3 className="machine-name">{machine.name}</h3>
+                <p>{machine.description}</p>
+              <p>Stock: {machine.stock}</p>
+              <Link to={`/machines/${machine.id}`}>
+                <button>Voir le produit</button>
+              </Link>
+              </div>
+            ))
+          ) : (
+            <p>Aucune nouveauté disponible.</p>
+          )}
+        </div>
+      </div>
+
+      {/* Produits Populaires */}
+      <div className="popular-items-section">
+        <h2>Produits Populaires</h2>
+        <div className="popular-items-content">
+          {popularItems.length > 0 ? (
+            popularItems.map((machine) => (
+              <div className="machine-card" key={machine.id}>
+              <img src={machine.image} alt={machine.name} className="machine-image" />
+              <h3>{machine.name}</h3>
+              <p>{machine.description}</p>
+              <p>Stock: {machine.stock}</p>
+              <Link to={`/machines/${machine.id}`}>
+                <button>Voir le produit</button>
+              </Link>
+            </div>
+            ))
+          ) : (
+            <p>Aucun produit populaire disponible.</p>
+          )}
         </div>
       </div>
     </div>

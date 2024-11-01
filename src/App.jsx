@@ -5,7 +5,7 @@ import Accueil from './Pages/Accueil.jsx';
 import NosServices from './Pages/NosServices.jsx';
 import Machines from './Pages/DestructeurDeDocuments.jsx';
 import MachineDetails from './Pages/MachineDetails.jsx';
-import SearchResults from './Pages/SearchResults.jsx'; // Importez votre composant SearchResults
+import SearchResults from './Pages/SearchResults.jsx'; 
 import Utilisation from './Pages/Utilisation.jsx';
 import Contact from './Pages/Contact.jsx';
 import FAQ from './Pages/FAQ.jsx';
@@ -25,8 +25,8 @@ function App() {
           <Route path="/NosServices" element={<NosServices />} />
           <Route path="/DestructeurDeDocuments/:category" element={<Machines />} />
           <Route path="/DestructeurDeDocuments" element={<Machines />} />
+          <Route path="/SearchResults" element={<SearchResults />} /> 
           <Route path="/machines/:id" element={<MachineDetails />} />
-          <Route path="/searchResults" element={<SearchResults />} /> {/* Ajoutez cette ligne */}
           <Route path="/Utilisation" element={<Utilisation />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/FAQ" element={<FAQ />} />
