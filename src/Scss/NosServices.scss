@@ -32,11 +32,11 @@ $border-radius: 15px;
   background-color: $secondary-color;
   border-radius: $border-radius;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  flex-direction: column; // Aligne les sections verticalement
+  flex-direction: column;
 
   .content {
     width: 100%;
-    
+
     .section {
       display: flex;
       align-items: flex-start;
@@ -47,22 +47,22 @@ $border-radius: 15px;
       }
 
       .section-image {
-        width: 350px; 
+        width: 350px;
         height: auto;
         margin-left: 1rem;
         border-radius: $border-radius;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        animation: slideInRight 0.5s ease forwards; // Animation pour l'image
-        opacity: 0; // Initialement invisible
-        animation-delay: 0.3s; // Délai pour l'animation
+        animation: slideInRight 0.5s ease forwards;
+        opacity: 0;
+        animation-delay: 0.3s;
       }
 
       h1, h2 {
         color: $heading-color;
         font-size: 1.8rem;
         margin-bottom: 1rem;
-        animation: slideInLeft 0.5s ease forwards; // Animation pour le texte
-        opacity: 0; // Initialement invisible
+        animation: slideInLeft 0.5s ease forwards;
+        opacity: 0;
       }
 
       h1 {
@@ -83,9 +83,9 @@ $border-radius: 15px;
         font-size: 1.1rem;
         line-height: 1.6;
         margin-bottom: 1rem;
-        animation: slideInLeft 0.5s ease forwards; // Animation pour le texte
-        opacity: 0; // Initialement invisible
-        animation-delay: 0.3s; // Délai pour l'animation
+        animation: slideInLeft 0.5s ease forwards;
+        opacity: 0;
+        animation-delay: 0.3s;
       }
 
       ul {
@@ -100,6 +100,55 @@ $border-radius: 15px;
       strong {
         color: $primary-color;
         font-weight: bold;
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 10px;
+
+    .section {
+      flex-direction: column; // Empile les éléments en colonne
+      align-items: center;
+      text-align: center;
+
+      .section-image {
+        width: 80%; // Ajuste la largeur de l'image
+        margin-left: 0;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem; // Réduit la taille des titres
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p, ul {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p, ul {
+        font-size: 0.95rem;
+      }
+
+      .section-image {
+        width: 100%; // Utilise toute la largeur de l'écran pour l'image
       }
     }
   }

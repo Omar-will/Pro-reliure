@@ -5,7 +5,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import '../Scss/Accueil.scss';
 
 const images = [
-  'images/image1.webp',
+  'images/copeaux.WEBP',
   'images/image2.webp',
   'images/image3.webp',
 ];
@@ -86,7 +86,7 @@ const Accueil = () => {
       </div>
 
       {/* Marques */}
-      <div className="marques-container">
+      {/* <div className="marques-container">
         <h2>Nos Marques</h2>
         <div className="marques-content">
           <img src="images/DSB.png" alt="HSM" />
@@ -106,7 +106,7 @@ const Accueil = () => {
           <img src="images/DEMPACK.png" alt="DEMPACK" />
           <img src="images/fastback.png" alt="fastback" />
         </div>
-      </div>
+      </div> */}
 
       {/* Services */}
       <div className="services-section">
@@ -121,22 +121,15 @@ const Accueil = () => {
           <div className="service-circle fuchsia-border">
             <img src="images/Optimisation.webp" alt="Matériel Reconditionné" />
           </div>
-          <h3>Optimisation d'Équipement</h3>
-          <p>Réduisez vos dépenses en optant pour du matériel reconditionné pour vos besoins d'entreprise.</p>
+          <h3>Location destructeurs</h3>
+          <p>Équipez-vous avec des destructeurs de documents en location pour un service adapté à votre activité.</p>
         </div>
         <div className="service-item">
           <div className="service-circle orange-border">
             <img src="images/Solution.webp" alt="Sous-traitance" />
           </div>
-          <h3>Solutions de Sous-traitance</h3>
-          <p>Simplifiez la gestion de vos projets avec des services de sous-traitance, tout en profitant d’un service clé en main.</p>
-        </div>
-        <div className="service-item">
-          <div className="service-circle blue-border">
-            <img src="images/time.webp" alt="Conseil des Experts" />
-          </div>
-          <h3>Livraison dans toutes l'IDF</h3>
-          <p>Un service rapide et fiable pour toutes vos commandes, exclusivement dans l’ensemble de l'Île-de-France.</p>
+          <h3>Pièces détachées</h3>
+          <p>Prolongez l’usage de votre matériel pour des pièces détachées en stock pour un dépannage efficace et immédiat.</p>
         </div>
       </div>
 

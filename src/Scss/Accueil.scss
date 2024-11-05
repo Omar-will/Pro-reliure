@@ -183,7 +183,7 @@
 }
 
 .machine-image {
-  width: 80%;
+  width: 100%;
   height: auto;
   border-radius: 4px;
 }
@@ -222,4 +222,46 @@
   color: #888;
   text-align: center;
 }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .service-item {
+    width: 40%; // Adjust for medium screens
+  }
+
+ 
+}
+
+@media (max-width: 600px) {
+  .new-arrivals-content,
+  .popular-items-content {
+    flex-direction: column;
+    align-items: center;
+   
+  }
+
+  .machine-card {
+    display: block; /* Annule le comportement flex s'il y a un */
+    width: 100%;
+    max-width: 100%; /* Prend toute la largeur du conteneur */
+    margin: 0 auto 16px;
+    
+}
+}
+
+
+@media (max-width: 480px) {
+  .prev-button,
+  .next-button {
+    font-size: 20px; /* Taille de bouton plus petite */
+  }
+
+  .service-item h3 {
+    font-size: 16px; /* Taille de titre plus petite pour mobile */
+  }
+
+  .service-item p {
+    font-size: 16px; /* Texte plus petit pour mobile */
+  }
 }

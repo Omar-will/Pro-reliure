@@ -6,6 +6,7 @@ import { getFirestore, collection, query as firebaseQuery, where, getDocs } from
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const db = getFirestore();
 
@@ -58,9 +59,14 @@ const Header = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const handleCategoryClick = (category) => {
     navigate(`/DestructeurDeDocuments/${category}`);
     setIsDropdownOpen(false);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -68,21 +74,26 @@ const Header = () => {
       <nav>
         <div className="logo">
           <Link to="/">
-            <img src="/images/thumbnail_logo-proreliure-achat-materiel-reliure-internet-removebg-preview.webp" alt="Logo" />
+            <img src="/images/proreliure.webp" alt="Logo"/>
           </Link>
         </div>
-        <ul className="nav-links">
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/NosServices">Nos Services</Link></li>
+        <button className="hamburger" onClick={toggleMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
+          <li><Link to="/NosServices" onClick={() => setIsMenuOpen(false)}>Nos Services</Link></li>
           <li className="dropdown">
             <button className="dropdown-button" onClick={toggleDropdown}>
-              Destructeur de Documents 
+              Destructeurs de Documents 
               <span className={`arrow ${isDropdownOpen ? 'up' : 'down'}`}></span>
             </button>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
                 <div className="dropdown-section">
-                  <li className="dropdown-title">Destructeur de documents</li>
+                  <li className="dropdown-title">Destructeurs de documents</li>
                   <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines</li>
                   <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau</li>
                   <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité</li>
@@ -113,9 +124,8 @@ const Header = () => {
               </ul>
             )}
           </li>
-          <li><Link to="/Utilisation">Utilisation</Link></li>
-          <li><Link to="/Contact">Contact</Link></li>
-          <li><Link to="/FAQ">FAQ</Link></li>
+          <li><Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+          {/* <li><Link to="/FAQ" onClick={() => setIsMenuOpen(false)}>FAQ</Link></li> */}
           <li className="phone-contact">Contact par téléphone : 06 52 52 81 51</li>
         </ul>
         <SearchBar onSearch={handleSearch} />
