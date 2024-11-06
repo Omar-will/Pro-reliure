@@ -6,10 +6,10 @@ const Contact = () => {
     <div className="contact-page">
       <div className="service-info">
         <h3>Services après-vente</h3>
-        <p>Chez Proreliure, nous comprenons l'importance de la sécurité et de l'efficacité dans la gestion de vos documents sensibles. </p>
+        <p>Chez Proreliure, nous comprenons l'importance de la sécurité et de l'efficacité dans la gestion de vos documents sensibles.</p>
         <p>C’est pourquoi nous offrons un service après-vente dédié et personnalisé pour vos destructeurs de documents de bureau.</p>
         <h4>Une expertise à votre service</h4>
-        <p>Une expertise à votre service Nos experts sont à votre disposition pour vous conseiller sur l'utilisation optimale de vos destructeurs de documents, afin de garantir une performance maximale et une sécurité renforcée. </p>
+        <p>Nos experts sont à votre disposition pour vous conseiller sur l'utilisation optimale de vos destructeurs de documents, afin de garantir une performance maximale et une sécurité renforcée.</p>
         <p>Nous assurons également la fourniture de pièces détachées d’origine, pour un fonctionnement fiable et durable.</p>
         <img src="/images/id1c.webp" alt="Service après-vente" className="service-image" />
       </div>
@@ -41,6 +41,14 @@ const Contact = () => {
           <label>
             Objet (obligatoire)
             <input type="text" required />
+          </label>
+          <label>
+            Type de service (obligatoire)
+            <select required>
+              <option value="">Sélectionner...</option>
+              <option value="achat">Achat</option>
+              <option value="location">Location</option>
+            </select>
           </label>
           <label>
             Votre message (obligatoire)

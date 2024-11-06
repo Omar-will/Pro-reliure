@@ -29,6 +29,7 @@
   margin: 0 15px;
 }
 
+/* État par défaut sans bordure visible */
 .nav-links a,
 .dropdown-button {
   color: black;
@@ -36,13 +37,32 @@
   font-size: 1.2rem;
   font-weight: bold;
   background: none;
-  border: none;
+  border: 2px solid transparent; /* Bordure transparente pour éviter le décalage */
+  padding: 5px 10px; /* Padding fixe pour éviter le mouvement */
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transition douce */
 }
 
 .nav-links a:hover,
 .dropdown-button:hover {
-  color: #52abcc;
+  color: #fff;
+  background-color: #ff0000; /* Couleur rouge vif */
+  border-color: #ff0000; /* Bordure rouge au survol */
+  border-radius: 4px; /* Optionnel : arrondir les coins */
+}
+
+/* État par défaut sans mouvement pour les éléments du menu déroulant */
+.dropdown-menu li {
+  padding: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu li:hover {
+  background-color: #ff0000; /* Rectangle rouge vif pour les éléments de menu déroulant */
+  color: black;
+  border-radius: 4px;
 }
 
 .dropdown-button {
