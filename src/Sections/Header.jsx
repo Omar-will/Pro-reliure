@@ -124,10 +124,10 @@ const Header = () => {
               </ul>
             )}
           </li>
+          <li><Link to="/MatelasseurDeCartons" onClick={() => setIsMenuOpen(false)}>Matelasseur De Cartons</Link></li>
           <li><Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
-          {/* <li><Link to="/FAQ" onClick={() => setIsMenuOpen(false)}>FAQ</Link></li> */}
-          <li className="phone-contact">Contact par téléphone : 06 52 52 81 51</li>
         </ul>
+          <p className="phone-contact">Contact par téléphone : 06 52 52 81 51</p>
         <SearchBar onSearch={handleSearch} />
       </nav>
     </header>

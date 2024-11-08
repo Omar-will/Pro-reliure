@@ -51,6 +51,10 @@
   border-radius: 4px; /* Optionnel : arrondir les coins */
 }
 
+.nav-links a {
+  font-weight: 700;
+}
+
 /* État par défaut sans mouvement pour les éléments du menu déroulant */
 .dropdown-menu li {
   padding: 8px;
@@ -126,8 +130,10 @@
 }
 
 .phone-contact {
-  margin-left: 20px;
-  font-size: 1.3rem;
+  position: absolute; /* ou position: fixed */
+  right: 0px;
+  margin-right: 20px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: black;
 }
@@ -193,6 +199,14 @@
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 
+  .phone-contact {
+    margin-left: 20px;
+    top: 90px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: black;
+  }
+
   .nav-links.active {
     display: flex; /* Afficher le menu lorsque la classe active est ajoutée */
   }
@@ -203,5 +217,13 @@
 
   .hamburger {
     display: flex; /* Afficher le hamburger dans les petits écrans */
+  }
+}
+
+@media (max-width: 810px) {
+  .phone-contact {
+    
+    font-size: 0.8rem;
+    font-weight: 800;
   }
 }
