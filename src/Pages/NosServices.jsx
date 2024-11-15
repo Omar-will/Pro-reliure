@@ -1,67 +1,51 @@
 import React from 'react';
 import '../Scss/NosServices.scss';
+import { Link } from 'react-router-dom'; // Assurez-vous que le routage est configuré
 
 const NosServices = () => {
   return (
     <div className="nos-services">
       <div className="content">
+
+        {/* Section Assistance et Dépannage */}
         <div className="section">
           <div>
-            <h1>Spécialiste du Service Après-Vente</h1>
+            <h2>Assistance et Dépannage</h2>
             <p>
-              Nous nous consacrons à l’entretien et à la maintenance de matériel de façonnage pour les professionnels.<br />
-              Destinés aux petites et moyennes entreprises, aux organismes de formation et d’enseignement,
-              ainsi qu'aux collectivités et administrations.<br />
-              ainsi que la vente de massicots neufs et d'occasion.
-              Nous proposons une large gamme de services,<br />
+              Notre service d’assistance et dépannage est spécialement conçu pour répondre rapidement à vos besoins en matière de maintenance et réparation de vos équipements de bureau.
+              Nous nous engageons à diagnostiquer et résoudre les pannes dans les plus brefs délais pour minimiser les interruptions dans votre activité.<br />
+              <Link to="/contact" className="contact-link">Contactez-nous</Link> pour en savoir plus ou obtenir une assistance immédiate.
             </p>
-
           </div>
+          <img src="/images/nosServices1.webp" alt="Assistance et Dépannage" className="section-image" />
         </div>
 
+        {/* Section Location de Destructeur */}
         <div className="section">
           <div>
-            <h2>Qui bénéficie de nos services ?</h2>
-            <p>Nous intervenons dans tous les secteurs d'activité :</p>
-            <ul>
-              <li>Petites et moyennes entreprises</li>
-              <li>Organismes de formation et d’enseignement</li>
-              <li>Collectivités et administrations</li>
-            </ul>
+            <h2>Location de Destructeur</h2>
+            <p>
+              Nous proposons des solutions flexibles de location de destructeurs de documents pour les entreprises de toutes tailles. Avec des options personnalisées, vous pouvez louer un destructeur adapté à vos besoins sans investissement initial important.
+              Idéal pour les entreprises ayant des besoins ponctuels ou saisonniers de destruction de documents.<br />
+              <Link to="/contact" className="contact-link">Contactez-nous</Link> pour découvrir nos options de location.
+            </p>
           </div>
-        <img src="/images/nosServices1.webp" alt="Service Après-Vente" className="section-image" />
+          <img src="/images/id1b.webp" alt="Location de Destructeur" className="section-image" />
         </div>
 
+        {/* Section Gestion de Pièces Détachées */}
         <div className="section">
           <div>
-            <h2>Expertise en maintenance de destructeurs de bureau</h2>
-            <p><strong>Des solutions sur mesure pour vos besoins en sécurité documentaire :</strong></p>
+            <h2>Gestion de Pièces Détachées</h2>
             <p>
-              Notre savoir-faire s'étend à une gamme variée de destructeurs de papier, adaptés aux exigences de sécurité de chaque entreprise.<br /> Nous comprenons l'importance de la confidentialité et de la protection des données, <br />c'est pourquoi nous vous offrons des équipements performants et fiables.
-            </p>
-            <p>
-              Nous collaborons avec des marques de renommée mondiale, telles que IDEAL, qui proposent des destructeurs de bureau conçus <br /> pour traiter différents volumes de documents, que ce soit pour un usage personnel ou en milieu professionnel.
-            </p>
-            <p>
-              De l'entretien préventif à la maintenance corrective, <br /> notre équipe de techniciens qualifiés est à votre disposition pour assurer le bon fonctionnement de votre matériel.
+              Nous assurons la disponibilité des pièces détachées pour une variété d’équipements de bureau. Grâce à notre service de gestion de pièces détachées, nous garantissons que vos machines peuvent être réparées rapidement et efficacement avec des pièces d’origine ou compatibles.
+              Notre stock inclut des composants pour les marques les plus reconnues du secteur.<br />
+              <Link to="/contact" className="contact-link">Contactez-nous</Link> pour toute demande de pièces ou renseignements.
             </p>
           </div>
-        <img src="/images/nosServices2.webp" alt="Bénéficiaires des Services" className="section-image" />
+          <img src="/images/nosServices2.webp" alt="Gestion de Pièces Détachées" className="section-image" />
         </div>
 
-        <div className="section">
-          <div>
-            <h2>Pour quels types de documents ?</h2>
-           
-            <ul>
-              <li>Documents commerciaux et de marketing</li>
-              <li>Supports d'affichage</li>
-              <li>Présentations</li>
-              <li>Documents de consultation</li>
-            </ul>
-          </div>
-        <img src="/images/nosServices3.webp" alt="Maintenance Destructeurs" className="section-image" />
-        </div>
       </div>
     </div>
   );

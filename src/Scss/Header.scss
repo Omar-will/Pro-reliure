@@ -1,14 +1,22 @@
 /* Styles de la barre de navigation */
 .navbar {
   background: white;
-  padding: 1rem;
+  padding: 0;
+  margin-top: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de relief */
-  border-radius: 8px; /* Optionnel : arrondi les coins */
 }
 
+.banner {
+  background: black; /* Fond noir */
+  color: white;
+  width: 100%; 
+  margin: 0;/* Texte blanc */
+  padding: 0.5rem 3rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : effet d'ombre */
+}
 
 .logo img {
   height: 50px;
@@ -32,7 +40,7 @@
 /* État par défaut sans bordure visible */
 .nav-links a,
 .dropdown-button {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
@@ -132,6 +140,7 @@
 .phone-contact {
   position: absolute; /* ou position: fixed */
   right: 0px;
+  top: 20%;
   margin-right: 20px;
   font-size: 1.2rem;
   font-weight: 700;
@@ -161,7 +170,7 @@
     top: 120px;
     left: 0;
     width: 100%;
-    background: linear-gradient(to right, #870000, #190a05);
+    background: #ff0000;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 
@@ -195,7 +204,7 @@
     top: 120px;
     left: 0;
     width: 100%;
-    background: linear-gradient(to right, #870000, #190a05);
+    background: #ff0000;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 

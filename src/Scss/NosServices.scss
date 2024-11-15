@@ -104,6 +104,16 @@ $border-radius: 15px;
     }
   }
 
+  .contact-link {
+    color: $primary-color;
+    font-weight: bold;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+      color: darken($primary-color, 10%);
+    }
+  }
+
   // Responsive Design
   @media (max-width: 768px) {
     padding: 10px;

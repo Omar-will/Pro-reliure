@@ -110,28 +110,43 @@ const Accueil = () => {
 
       {/* Services */}
       <div className="services-section">
-        <div className="service-item">
-          <div className="service-circle green-border">
-            <img src="images/SAV.webp" alt="Assistance" />
-          </div>
-          <h3>Assistance/Dépannage</h3>
+  <div className="service-item">
+    <div className="service-circle green-border">
+      <div className="img-wrapper">
+        <img src="images/SAV.webp" alt="Assistance" />
+        <div className="overlay">
           <p>Trouvez un centre technique en cas de dysfonctionnement de votre matériel de reliure professionnel hors garantie.</p>
         </div>
-        <div className="service-item">
-          <div className="service-circle fuchsia-border">
-            <img src="images/Optimisation.webp" alt="Matériel Reconditionné" />
-          </div>
-          <h3>Location destructeurs</h3>
+      </div>
+    </div>
+    <h3>Assistance/Dépannage</h3>
+  </div>
+
+  <div className="service-item">
+    <div className="service-circle fuchsia-border">
+      <div className="img-wrapper">
+        <img src="images/Optimisation.webp" alt="Matériel Reconditionné" />
+        <div className="overlay">
           <p>Équipez-vous avec des destructeurs de documents en location pour un service adapté à votre activité.</p>
         </div>
-        <div className="service-item">
-          <div className="service-circle orange-border">
-            <img src="images/Solution.webp" alt="Sous-traitance" />
-          </div>
-          <h3>Pièces détachées</h3>
+      </div>
+    </div>
+    <h3>Location destructeurs</h3>
+  </div>
+
+  <div className="service-item">
+    <div className="service-circle orange-border">
+      <div className="img-wrapper">
+        <img src="images/Solution.webp" alt="Sous-traitance" />
+        <div className="overlay">
           <p>Prolongez l’usage de votre matériel pour des pièces détachées en stock pour un dépannage efficace et immédiat.</p>
         </div>
       </div>
+    </div>
+    <h3>Pièces détachées</h3>
+  </div>
+</div>
+
 
       {/* Nouveautés */}
       <div className="new-arrivals-section">

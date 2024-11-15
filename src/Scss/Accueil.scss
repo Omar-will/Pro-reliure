@@ -97,83 +97,95 @@
 
 .services-section {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   padding: 40px 0;
   background-color: #f4f4f4;
 }
 
 .service-item {
+  position: relative;
   text-align: center;
-  width: 400px;
-  margin: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 0;
 }
 
-// .service-circle {
-//   width: 200px;
-//   height: 200px;
-//   border-radius: 50%;
-//   background-color: #fff;
-//   overflow: hidden;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-//   border: 5px solid transparent;
-// }
+.service-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
 
 .service-circle {
-  width: 400px; // Largeur fixe
-  height: 400px;
-   // Hauteur fixe pour garder une forme rectangulaire
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
   background-color: #fff;
- 
-  margin: 0 auto; 
+  display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: 2px solid transparent;
-  // Vous pouvez définir une couleur de bordure spécifique en fonction de vos besoins
+  margin: 0 auto;
+  z-index: 2;
 }
 
-
-.green-border {
-  border-color: #21ed51;
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.fuchsia-border {
-  border-color: #fa1d66;
-}
-
-.orange-border {
-  border-color: #ff6b01;
-}
-
-.blue-border {
-  border-color: #30a1fd;
-}
-
-.service-circle img {
+.img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Voile sombre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay p {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+.img-wrapper:hover .overlay {
+  opacity: 1; /* Affiche le voile et le texte au survol */
 }
 
 .service-item h3 {
   margin-top: 15px;
-  margin-right: 40px;
   font-size: 18px;
-  color: #b92121;
+  color: #ff0000;
   white-space: nowrap;
 }
 
-.service-item p {
-  font-size: 18px;
-  color: #585858;
-  margin-top: 10px;
-  font-weight: 600;
+
+@media (min-width: 600px) {
+  .services-section {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }
 
 .new-arrivals-section,

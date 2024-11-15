@@ -6,6 +6,7 @@ import { getFirestore, collection, query as firebaseQuery, where, getDocs } from
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const db = getFirestore();
@@ -57,6 +58,12 @@ const Header = () => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    setIsLocationDropdownOpen(false);
+  };
+
+  const toggleLocationDropdown = () => {
+    setIsLocationDropdownOpen(!isLocationDropdownOpen);
+    setIsDropdownOpen(false);
   };
 
   const toggleMenu = () => {
@@ -66,6 +73,7 @@ const Header = () => {
   const handleCategoryClick = (category) => {
     navigate(`/DestructeurDeDocuments/${category}`);
     setIsDropdownOpen(false);
+    setIsLocationDropdownOpen(false);
     setIsMenuOpen(false);
   };
 
@@ -77,6 +85,7 @@ const Header = () => {
             <img src="/images/proreliure.webp" alt="Logo"/>
           </Link>
         </div>
+      <div className="banner">
         <button className="hamburger" onClick={toggleMenu}>
           <span className="bar"></span>
           <span className="bar"></span>
@@ -85,6 +94,8 @@ const Header = () => {
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
           <li><Link to="/NosServices" onClick={() => setIsMenuOpen(false)}>Nos Services</Link></li>
+
+          {/* Menu pour Destructeurs de Documents */}
           <li className="dropdown">
             <button className="dropdown-button" onClick={toggleDropdown}>
               Destructeurs de Documents 
@@ -124,10 +135,30 @@ const Header = () => {
               </ul>
             )}
           </li>
+
+          {/* Menu pour Location de Destructeurs */}
+          <li className="dropdown">
+            <button className="dropdown-button" onClick={toggleLocationDropdown}>
+              Location de Destructeurs 
+              <span className={`arrow ${isLocationDropdownOpen ? 'up' : 'down'}`}></span>
+            </button>
+            {isLocationDropdownOpen && (
+              <ul className="dropdown-menu">
+                <div className="dropdown-section">
+                  <li className="dropdown-title">Destructeurs de documents</li>
+                  <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines</li>
+                  <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau</li>
+                  <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité</li>
+                </div>
+              </ul>
+            )}
+          </li>
+
           <li><Link to="/MatelasseurDeCartons" onClick={() => setIsMenuOpen(false)}>Matelasseur De Cartons</Link></li>
           <li><Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
         </ul>
-          <p className="phone-contact">Contact par téléphone : 06 52 52 81 51</p>
+        <p className="phone-contact">Contact par téléphone : 06 52 52 81 51</p>
+      </div>
         <SearchBar onSearch={handleSearch} />
       </nav>
     </header>

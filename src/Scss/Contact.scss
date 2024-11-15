@@ -14,8 +14,9 @@
   padding: 2rem;
   margin-right: 2rem;
   border-radius: 10px;
-  background: linear-gradient(to right, #ff0000, #190a05);
-  color: white;
+  background-color: rgb(233, 233, 233);
+  color: black;
+  border: 1px solid black;
 }
 
 .service-info h3 {
@@ -27,13 +28,14 @@
   flex: 2;
   max-width: 800px;
   padding: 2rem;
-  background: linear-gradient(to right, #ff0000, #190a05);
-  border-radius: 10px;
-  color: white;
+  background-color: rgb(233, 233, 233);
+  color: rgb(0, 0, 0);
+  border: 1px solid black; 
 }
 
 .contact-info {
   margin-bottom: 2rem;
+  
 }
 
 .contact-info h2 {
@@ -61,11 +63,13 @@
   border-radius: 5px;
   border: none;
   margin-top: 0.5rem;
+  background-color: white;
+  border: 2px solid black;
 }
 
 .contact-form button {
-  background-color: #fff;
-  color: #0b8793;
+  background-color: #a7a7a7;
+  color: #000000;
   border: none;
   padding: 0.75rem;
   border-radius: 5px;
@@ -75,7 +79,7 @@
 }
 
 .contact-form button:hover {
-  background-color: #f0f0f0;
+  background-color: #5f5e5e;
 }
 
 input.inputCase {
