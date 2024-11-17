@@ -1,24 +1,29 @@
 .breadcrumb {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    
-    li {
-      margin-right: 8px;
-      
-      a {
-        text-decoration: none;
-        color: #da0809;
-        
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      
-      &:not(:last-child)::after {
-        content: " / ";
-        margin-left: 8px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  align-items: center; // Aligne les éléments sur la même ligne verticalement
+
+  li {
+    display: flex; // Force chaque élément à utiliser flexbox pour gérer le contenu
+    align-items: center;
+    margin-right: 8px;
+
+    a {
+      text-decoration: none;
+      color: #da0809;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
+
+    &:not(:last-child)::after {
+      content: " / ";
+      margin-left: 8px;
+      margin-bottom: 10px;
+      display: inline; // Assure que le '/' est traité comme du texte
+      align-self: center; // S'assure que l'élément est centré par rapport au parent
+    }
   }
-  
+}

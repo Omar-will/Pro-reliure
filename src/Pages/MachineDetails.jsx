@@ -65,55 +65,64 @@ const MachineDetails = () => {
 
       <div className="machine-info">
         <a href="/contact" className="quote-button">Obtenir un devis</a>
+
         {/* Lien vers le PDF */}
-        {machine.pdfUrl && (
-            <div className="pdf-container">
-              <a href={machine.pdfUrl} target="_blank" rel="noopener noreferrer">
-                Voir la fiche produit
-              </a>
-            </div>
-          )}
         <h2>{machine.name}</h2>
         <p className="machine-description">{machine.description}</p>
+      </div>
 
-        {/* Description complète - Toujours visible */}
-        <div className="description-container">
-          <div
-            className="description-content"
-            dangerouslySetInnerHTML={{ __html: machine.fullDescription }} // Affichage HTML complet de la description
-          />
-          <div
-            className="additional-description-content"
-            dangerouslySetInnerHTML={{ __html: machine.additionalDescription }} // Affiche additionalDescription sous la section de description
-          />
-        </div>
-
-
-        {/* Informations complémentaires - Toujours visible */}
-        <div className="additional-info-container">
-          
-          <div className="additional-info-content">
-            <div
-              className="additional-details-content"
-              dangerouslySetInnerHTML={{ __html: machine.additionalDetails }} // Affiche les détails additionnels sous la même section
-              />
-              {/* Vidéo de démonstration */}
-              {machine.video && (
-                <div className="video-container">
-                  <h3>Vidéo de démonstration</h3>
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={machine.video} // Assurez-vous que le champ video est dans Firestore
-                    title="Vidéo de démonstration"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              )}
+      {/* Bandeau avec "Fonctionnalité", "Caractéristique", "Démonstration" */}
+      <div className="info-banner">
+        <a href="#description-container" className="info-item">Fonctionnalité</a>
+        <a href="#additional-details-content" className="info-item">Caractéristique</a>
+        <a href="#video-container" className="info-item">Démonstration</a>
+        {machine.pdfUrl && (
+          <div className="info-item">
+            <a href={machine.pdfUrl} target="_blank" rel="noopener noreferrer">
+              Voir la fiche produit
+            </a>
           </div>
+        )}
+      </div>
+
+
+      {/* Description complète */}
+      <div id="description-container" className="description-container">
+        <div
+          className="description-content"
+          dangerouslySetInnerHTML={{ __html: machine.fullDescription }} // Affichage HTML complet de la description
+        />
+        <div
+          className="additional-description-content"
+          dangerouslySetInnerHTML={{ __html: machine.additionalDescription }} // Affiche additionalDescription sous la section de description
+        />
+      </div>
+
+      {/* Informations complémentaires */}
+      <div className="additional-info-container">
+        <div className="additional-info-content">
+          <div
+            id="additional-details-content" 
+            className="additional-details-content"
+            dangerouslySetInnerHTML={{ __html: machine.additionalDetails }} // Affiche les détails additionnels sous la même section
+          />
         </div>
+
+        {/* Vidéo de démonstration */}
+        {machine.video && (
+          <div id="video-container" className="video-container">
+            <h3>Vidéo de démonstration</h3>
+            <iframe
+              width="560"
+              height="315"
+              src={machine.video} // Assurez-vous que le champ video est dans Firestore
+              title="Vidéo de démonstration"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        )}
       </div>
     </div>
   );

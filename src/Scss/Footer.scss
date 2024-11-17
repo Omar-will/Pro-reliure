@@ -1,31 +1,60 @@
 footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(to right, #000000, #434343);
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .section {
-    margin: 10px 0;
-  }
-  
-  .icon-container {
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
+  background: linear-gradient(to right, #000000, #434343);
+  color: #fff;
+  padding: 20px;
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px; /* Espacement entre les colonnes */
+  font-size: 1.3rem;
+}
+
+.section {
+  flex: 1;
+  padding: 10px;
+}
+
+.left-column {
+  text-align: left;
+  margin-left: 5rem;
+}
+
+.right-column {
+  text-align: right;
+  margin-right: 5rem;
+}
+
+/* Gestion des colonnes : par défaut, gauche à droite */
+.columns-left-right {
+  flex-direction: row; /* Colonne gauche, puis colonne droite */
+}
+
+/* Inversion des colonnes : droite à gauche */
+.columns-right-left {
+  flex-direction: row-reverse; /* Colonne droite, puis colonne gauche */
+}
+
+/* Alignement vertical */
+.footer-container.vertical {
+  flex-direction: column; /* Empiler les colonnes */
+  align-items: center; /* Centrer les colonnes */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.phone-contact2 {
+  margin-top: 10px;
+}

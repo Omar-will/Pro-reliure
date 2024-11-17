@@ -157,6 +157,7 @@ const Header = () => {
           <li><Link to="/MatelasseurDeCartons" onClick={() => setIsMenuOpen(false)}>Matelasseur De Cartons</Link></li>
           <li><Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
         </ul>
+        <p className="showRoom">Retrouvez notre showroom de 8h à 19h</p>
         <p className="phone-contact">Contact par téléphone : 06 52 52 81 51</p>
       </div>
         <SearchBar onSearch={handleSearch} />

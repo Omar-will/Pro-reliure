@@ -12,7 +12,7 @@
 .banner {
   background: black; /* Fond noir */
   color: white;
-  width: 100%; 
+  width: 94vw; 
   margin: 0;/* Texte blanc */
   padding: 0.5rem 3rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : effet d'ombre */
@@ -54,8 +54,8 @@
 .nav-links a:hover,
 .dropdown-button:hover {
   color: #fff;
-  background-color: #ff0000; /* Couleur rouge vif */
-  border-color: #ff0000; /* Bordure rouge au survol */
+  background-color: #ed1a3b; /* Couleur rouge vif */
+  border-color: #ed1a3b; /* Bordure rouge au survol */
   border-radius: 4px; /* Optionnel : arrondir les coins */
 }
 
@@ -80,6 +80,7 @@
 .dropdown-button {
   display: flex;
   align-items: center;
+  margin-bottom: 11px;
 }
 
 .arrow {
@@ -139,8 +140,18 @@
 
 .phone-contact {
   position: absolute; /* ou position: fixed */
-  right: 0px;
-  top: 20%;
+  right: 40%;
+  top: 1%;
+  margin-right: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: black;
+}
+
+.showRoom{
+  position: absolute; /* ou position: fixed */
+  right: 10px;
+  top: 1%;
   margin-right: 20px;
   font-size: 1.2rem;
   font-weight: 700;
@@ -170,7 +181,7 @@
     top: 120px;
     left: 0;
     width: 100%;
-    background: #ff0000;
+    background: #ed1a3b;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 
@@ -204,7 +215,7 @@
     top: 120px;
     left: 0;
     width: 100%;
-    background: #ff0000;
+    background: #ed1a3b;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 

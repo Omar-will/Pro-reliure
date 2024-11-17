@@ -13,7 +13,7 @@
   padding: 10px 20px;
   margin: 0 10px;
   border: none;
-  background-color: #ff6666;
+  background-color: #ed1a3b;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -25,7 +25,7 @@
 }
 
 .tab-button.active {
-  background-color: #ff0000;
+  background-color: #ed1a3b;
 }
 
 .tab-button:hover {
@@ -55,7 +55,7 @@
 }
 
 button {
-  background-color: #ff0000;
+  background-color: #ed1a3b;
   color: white;
   padding: 10px 20px;
   border: none;

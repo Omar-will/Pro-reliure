@@ -66,10 +66,23 @@ const MatelasseursDetails = () => {
       <div className="matelasseur-info">
         <a href="/contact" className="quote-button">Obtenir un devis</a>
         <h2>{matelasseur.name}</h2>
-        <p className="matelasseur-description">{matelasseur.description}</p>
+            <p className="matelasseur-description">{matelasseur.description}</p>
+
+        <div className="info-banner">
+        <a href="#description-content" className="info-item">Fonctionnalité</a>
+        <a href="#additional-info-content" className="info-item">Caractéristique</a>
+        <a href="#video-container" className="info-item">Démonstration</a>
+        {matelasseur.pdfUrl && (
+          <div className="info-item">
+            <a href={matelasseur.pdfUrl} target="_blank" rel="noopener noreferrer">
+              Voir la fiche produit
+            </a>
+          </div>
+        )}
+      </div>
 
         {/* Description complète affichée par défaut */}
-        <div className="description-content">
+        <div id="description-content" className="description-content">
           <div
             dangerouslySetInnerHTML={{ __html: matelasseur.fullDescription }}
           />
@@ -79,37 +92,28 @@ const MatelasseursDetails = () => {
           />
         </div>
 
-        {/* Affichage de la vidéo */}
-        {matelasseur.video && (
-          <div className="video-container">
-            <h3>Vidéo de démonstration</h3>
-            <iframe
-              width="560"
-              height="315"
-              src={matelasseur.video}
-              title="Vidéo de démonstration"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        )}
-
         {/* Informations complémentaires affichées par défaut */}
-        <div className="additional-info-content">
+        <div id="additional-info-content"  className="additional-info-content">
           <div
             dangerouslySetInnerHTML={{ __html: matelasseur.additionalDetails }}
-          />
+            />
         </div>
 
-        {/* Lien vers le PDF */}
-        {matelasseur.pdfUrl && (
-          <div className="pdf-container">
-            <a href={matelasseur.pdfUrl} target="_blank" rel="noopener noreferrer">
-              Voir la fiche produit
-            </a>
-          </div>
-        )}
+            {/* Affichage de la vidéo */}
+            {matelasseur.video && (
+              <div className="video-container">
+                <h3>Vidéo de démonstration</h3>
+                <iframe
+                  width="560"
+                  height="315"
+                  src={matelasseur.video}
+                  title="Vidéo de démonstration"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
       </div>
     </div>
   );
