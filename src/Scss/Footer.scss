@@ -1,28 +1,28 @@
 footer {
   background: linear-gradient(to right, #000000, #434343);
   color: #fff;
-  padding: 20px;
+  padding: 10px; /* Réduit l'espace intérieur */
 }
 
 .footer-container {
   display: flex;
-  gap: 20px; /* Espacement entre les colonnes */
-  font-size: 1.3rem;
+  gap: 15px; /* Réduit l'espacement entre les colonnes */
+  font-size: 1.1rem; /* Réduit légèrement la taille de la police */
 }
 
 .section {
   flex: 1;
-  padding: 10px;
+  padding: 5px; /* Réduit l'espace intérieur des sections */
 }
 
 .left-column {
   text-align: left;
-  margin-left: 5rem;
+  margin-left: 2rem; /* Réduit la marge gauche */
 }
 
 .right-column {
   text-align: right;
-  margin-right: 5rem;
+  margin-right: 2rem; /* Réduit la marge droite */
 }
 
 /* Gestion des colonnes : par défaut, gauche à droite */
@@ -44,17 +44,17 @@ footer {
 .icon-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px; /* Réduit l'espacement entre les icônes */
+  margin-bottom: 5px; /* Réduit l'espace en dessous */
 }
 
 a {
   color: #fff;
   text-decoration: none;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Réduit l'espacement entre les liens */
 }
 
 .phone-contact2 {
-  margin-top: 10px;
+  margin-top: 5px; /* Réduit l'espace en haut */
 }

@@ -83,8 +83,6 @@
     }
   }
   
-  
-
   .machine-info {
     flex: 2;
     padding-left: 10px;
@@ -200,6 +198,9 @@
   .machine-details {
     flex-direction: column;     /* Colonne pour les écrans plus petits */
     padding: 15px;
+    .info-banner {
+      margin-top: 50rem; 
+    }
   }
 
   .image-container {

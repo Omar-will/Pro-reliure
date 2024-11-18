@@ -12,9 +12,9 @@
 .banner {
   background: black; /* Fond noir */
   color: white;
-  width: 94vw; 
+  width: 99vw; 
   margin: 0;/* Texte blanc */
-  padding: 0.5rem 3rem;
+  padding: 0.5rem ;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : effet d'ombre */
 }
 
@@ -200,6 +200,7 @@
   .dropdown-menu li {
     margin-bottom: 10px; /* Espacement entre les éléments du dropdown */
   }
+
 
   .hamburger {
     display: flex; /* Afficher le hamburger dans les petits écrans */

@@ -2,13 +2,14 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     flex-wrap: wrap;
-  
+    
     h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
+      
     }
   
     p {
@@ -85,10 +86,9 @@
     .matelasseur-info {
       flex: 2;
       padding-left: 10px;
-     
       display: flex;
       flex-direction: column;
-
+     
   
       .description-content {
         font-size: 1.1rem;
@@ -113,12 +113,12 @@
       }
       
   
-      .additional-info-content {
+      .additionalInfoContent {
         font-size: 1.1rem;
         text-align: left; /* Aligne le texte à gauche */
         float: left; /* Place l'ensemble du contenu à gauche */
-        justify-content: left;
-        margin-left: -600px;
+        justify-content: center;
+        align-items: center;
   
         .info-block {
           flex: 1;
@@ -177,58 +177,78 @@
         }
       }
     }
-  
-    /* Responsive Styles */
-    @media (max-width: 900px) {
-      flex-direction: column;
-      padding: 15px;
-  
-      .image-container {
-        width: 100%;
-        height: auto;
-      }
-  
-      .image-thumbnails {
-        flex-direction: row;
-        gap: 5px;
-        justify-content: center;
-      }
-  
-      .matelasseur-info {
-        padding-left: 0;
+
+    @media (max-width: 1200px) {
+      
+      .additionalInfoContent {
+        font-size: 1.1rem;
+        text-align: center; /* Aligne le texte à gauche */
         margin-left: 0;
+        justify-content: center;
+        align-items: center;
       }
+    .matelasseur-info {
+      flex: 1;
+      padding-left: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+  }
   
-      .quote-button {
-        width: 100%;
-        text-align: center;
-      }
+  @media (max-width: 935px) {
+    .matelasseur-details {
+      flex-direction: column; /* Forcer l'empilement vertical */
+      align-items: center;
+      padding: 10px;
     }
   
-    @media (max-width: 768px) {
-      h2 {
-        font-size: 1.8rem;
-      }
-  
-      .description-content {
-        font-size: 0.9rem;
-      }
-  
-      .quote-button {
-        padding: 8px 16px;
-        font-size: 1rem;
-      }
+    .image-container {
+      max-width: 350px; /* Réduire l'image */
+      margin: 0 auto;
     }
   
-    @media (max-width: 480px) {
-      .quote-button {
-        font-size: 0.9rem;
-        padding: 6px 12px;
-      }
+    .matelasseur-info {
+      margin: 10px 0;
+      padding: 0 10px;
+    }
   
-      h2 {
-        font-size: 1.6rem;
-      }
+    .description-content {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    .additional-description-content, .description-content {
+      font-size: 1.1rem;
+      margin: 0;
+      margin-top: -90px;
+      text-align: center;
+      float: center;
+      justify-content:center;
+      margin-left: 300px;
+      width: 120%;
+    }
+    .additionalInfoContent {
+      margin-left: 3px;
     }
   }
   
+  @media (max-width: 480px) {
+    .matelasseur-details {
+      padding: 5px;
+    }
+  
+    .image-container {
+      max-width: 300px;
+    }
+  
+    .quote-button {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    .info-banner {
+      font-size: 0.9rem;
+      padding: 5px 0;
+    }
+  }
+}

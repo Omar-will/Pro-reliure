@@ -93,7 +93,7 @@ const MatelasseursDetails = () => {
         </div>
 
         {/* Informations complémentaires affichées par défaut */}
-        <div id="additional-info-content"  className="additional-info-content">
+        <div id="additional-info-content"  className="additionalInfoContent">
           <div
             dangerouslySetInnerHTML={{ __html: matelasseur.additionalDetails }}
             />
@@ -101,7 +101,7 @@ const MatelasseursDetails = () => {
 
             {/* Affichage de la vidéo */}
             {matelasseur.video && (
-              <div className="video-container">
+              <div id="video-container" className="video-container">
                 <h3>Vidéo de démonstration</h3>
                 <iframe
                   width="560"
