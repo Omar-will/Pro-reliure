@@ -71,11 +71,20 @@ const Header = () => {
   };
 
   const handleCategoryClick = (category) => {
-    navigate(`/DestructeurDeDocuments/${category}`);
+    // Si la catégorie contient "Location", naviguer vers la page Location Destructeurs
+    if (category.includes('Location')) {
+      navigate(`/location-destructeurs/${encodeURIComponent(category)}`);
+    } else {
+      // Sinon, naviguer vers la page DestructeurDeDocuments
+      navigate(`/DestructeurDeDocuments/${encodeURIComponent(category)}`);
+    }
+  
     setIsDropdownOpen(false);
     setIsLocationDropdownOpen(false);
     setIsMenuOpen(false);
   };
+  
+  
 
   return (
     <header className="navbar">
@@ -138,21 +147,22 @@ const Header = () => {
 
           {/* Menu pour Location de Destructeurs */}
           <li className="dropdown">
-            <button className="dropdown-button" onClick={toggleLocationDropdown}>
-              Location de Destructeurs 
-              <span className={`arrow ${isLocationDropdownOpen ? 'up' : 'down'}`}></span>
-            </button>
-            {isLocationDropdownOpen && (
-              <ul className="dropdown-menu">
-                <div className="dropdown-section">
-                  <li className="dropdown-title">Destructeurs de documents</li>
-                  <li onClick={() => handleCategoryClick('Toutes les machines')}>Toutes les machines</li>
-                  <li onClick={() => handleCategoryClick('Destructeurs de bureau')}>Destructeurs de bureau</li>
-                  <li onClick={() => handleCategoryClick('Destructeurs de forte capacité')}>Destructeurs de forte capacité</li>
-                </div>
-              </ul>
-            )}
-          </li>
+  <button className="dropdown-button" onClick={toggleLocationDropdown}>
+    Location de Destructeurs
+    <span className={`arrow ${isLocationDropdownOpen ? 'up' : 'down'}`}></span>
+  </button>
+  {isLocationDropdownOpen && (
+    <ul className="dropdown-menu">
+      <div className="dropdown-section">
+        <li className="dropdown-title">Destructeurs de documents</li>
+        <li onClick={() => handleCategoryClick('Toutes les Locations')}>Toutes les locations</li>
+        <li onClick={() => handleCategoryClick('Location Destructeurs de bureau')}>Location destructeurs de bureau</li>
+        <li onClick={() => handleCategoryClick('Location Destructeurs de forte capacité')}>Location destructeurs de forte capacité</li>
+      </div>
+    </ul>
+  )}
+</li>
+
 
           <li><Link to="/MatelasseurDeCartons" onClick={() => setIsMenuOpen(false)}>Matelasseur De Cartons</Link></li>
           <li><Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>

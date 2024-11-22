@@ -1,0 +1,356 @@
+.location-details {
+  display: flex;
+  justify-content: flex-start; /* Aligne les éléments à gauche */
+  padding: 20px;
+  max-width: 1200px;              /* Limite la largeur du conteneur */
+  margin: 0 auto;                /* Centre le conteneur sur la page */
+  flex-wrap: wrap; 
+
+  .error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin: 20px 0;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  /* Positionne les informations principales en haut à droite */
+  .location-info {
+    position: absolute; /* Permet de positionner à un endroit précis */
+    top: 250px;
+    right: 20px;
+    text-align: right; /* Aligne le texte à droite */
+    color: #871825;
+    width: 40%;
+    h2 {
+      font-size: 2rem;
+      color: #871825;
+    }
+
+    .location-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #555;
+    }
+  }
+
+  .image-container {
+    flex: 1;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    height: auto;
+    
+    img {
+      width: 400px;
+      height: auto;
+      margin: 1rem;
+      margin-right: 45rem;
+      object-fit: contain;
+    }
+  }
+
+  .image-thumbnails {
+    display: flex;
+    flex-direction: column;      /* Organise les miniatures en colonne */
+    gap: 10px;
+    position: absolute; /* Permet de positionner à un endroit précis */
+    top: 250px;
+    right: 650px;
+
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s ease;
+
+      &.selected {
+        border-color: #ed1a3b;    /* Bordure rouge pour l'élément sélectionné */
+      }
+
+      &:hover {
+        border-color: #871825;    /* Bordure rouge foncé au survol */
+      }
+    }
+  }
+
+  .info-banner {
+    display: flex;
+    justify-content: space-around; /* Espace égal entre les items */
+    background-color: #000000;     /* Couleur de fond */
+    color: white;                  /* Couleur du texte */
+    padding: 10px 0;               /* Espacement intérieur vertical */
+    width: 100vw;                  /* Prend toute la largeur visible de la fenêtre */
+    margin: 0;                     /* Supprime les marges */
+    position: absolute;            /* Place le bandeau par rapport au document */
+    left: 0;                       /* Aligne au bord gauche */
+    right: 0;  
+    margin-top: 30rem; 
+    margin-bottom: 8rem;                   /* Aligne au bord droit */
+  
+    .info-item {
+      font-size: 1.2rem;           /* Taille du texte */
+      font-weight: bold;
+      cursor: pointer;             /* Curseur pointeur au survol */
+  
+      &:hover {
+        text-decoration: underline; /* Soulignement au survol */
+      }
+    }
+  }
+
+  .description-container,
+  .additional-info-container {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 1rem;
+  
+    
+    .description-content,
+    .additional-info-content {
+      font-size: 1rem;
+      color: black;
+      text-align: justify;
+    }
+  }
+  
+  .description-container {
+    margin-top: 8rem;
+  }
+  .rental-section {
+    width: 100%;
+    max-width: 350px;
+    height: 330px;
+    margin-top: 6rem;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    h3 {
+      font-size: 1.5rem;
+      color: #871825;
+      margin-bottom: 20px;
+    }
+
+    .date-picker {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      label {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      input {
+        padding: 8px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+
+    .price-display {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #555;
+
+      strong {
+        font-size: 1.5rem;
+        color: #871825;
+      }
+    }
+    .react-datepicker__navigation-icon {
+      position: relative;
+      top: 1px;
+      font-size: 20px;
+      width: 0;
+      
+    }
+
+    .react-datepicker__header {
+      text-align: center;
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #aeaeae;
+      border-top-left-radius: 0.3rem;
+      padding: 30px 0;
+      position: relative;
+    }
+  }
+  // Formulaire de réservation - SCSS
+
+/* Style général du formulaire */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  overflow-y: auto; /* Ajout d'une barre de défilement verticale */
+  max-height: 80vh
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    border-color: #871825;
+    outline: none;
+  }
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.contact-form .submit-btn {
+  background-color: #871825;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #b03035;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.contact-form .close-btn {
+  background-color: transparent;
+  color: #333;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #871825;
+  }
+}
+
+/* Style des dates sélectionnées */
+.contact-form label span {
+  font-weight: bold;
+}
+
+.contact-form .date-selection {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.contact-form .date-selection label {
+  margin: 0;
+  font-weight: 500;
+}
+
+.contact-form .date-selection div {
+  width: 48%;
+}
+
+/* Style du modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+}
+
+.modal .submit-btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .contact-form .date-selection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-form .date-selection div {
+    width: 100%;
+  }
+}
+
+}

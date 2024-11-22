@@ -1,0 +1,88 @@
+.destructeurs-container {
+    padding: 20px;
+  
+    h1 {
+      text-align: center;
+      color: #ed1a3b;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  
+    .tab-button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background-color: #6BD183;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &.active {
+        background-color: #47985a;
+        color: white;
+      }
+  
+      &:hover {
+        background-color: #6BD183;
+      }
+    }
+  }
+  
+  .destructeurs-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .destructeur-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  
+    .destructeur-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+  
+    h3 {
+      color: #ed1a3b;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      background-color: #ed1a3b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #b92121;
+      }
+    }
+  }
+  

@@ -13,23 +13,23 @@
   padding: 10px 20px;
   margin: 0 10px;
   border: none;
-  background-color: #ed1a3b;
+  background-color: #6BD183;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   
   &.active {
-    background-color: #871825; // Couleur d'accentuation pour l'onglet actif
+    background-color: #47985a; // Couleur d'accentuation pour l'onglet actif
     color: white;
   }
 }
 
 .tab-button.active {
-  background-color: #ed1a3b;
+  background-color: #6BD183;
 }
 
 .tab-button:hover {
-  background-color: #871825;
+  background-color: #47985a;
 }
 
 .machines-list {
@@ -55,7 +55,7 @@
 }
 
 button {
-  background-color: #ed1a3b;
+  background-color: #6BD183;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -64,7 +64,7 @@ button {
 }
 
 button:hover {
-  background-color: #b92121;
+  background-color: #47985a;
 }
 
 /* Responsive Design */

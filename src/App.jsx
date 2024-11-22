@@ -9,6 +9,8 @@ import MatelasseursDetails from './Pages/MatelasseursDetails';
 import MachineDetails from './Pages/MachineDetails.jsx';
 import SearchResults from './Pages/SearchResults.jsx'; 
 import Utilisation from './Pages/Utilisation.jsx';
+import LocationDestructeurs from './Pages/LocationDestructeurs.jsx';
+import DestructeurDetails from './Pages/DestructeurDetails.jsx';
 import Contact from './Pages/Contact.jsx';
 import FAQ from './Pages/FAQ.jsx';
 import MentionsLegales from './Sections/MentionsLegales.jsx';
@@ -31,6 +33,8 @@ function App() {
           <Route path="/SearchResults" element={<SearchResults />} /> 
           <Route path="/machines/:id" element={<MachineDetails />} />
           <Route path="/matelasseurs/:id" element={<MatelasseursDetails />} />
+          <Route path="/location-destructeurs/:category" element={<LocationDestructeurs />} />
+          <Route path="/location/destructeur/:id" element={<DestructeurDetails />} />
           <Route path="/Utilisation" element={<Utilisation />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/FAQ" element={<FAQ />} />

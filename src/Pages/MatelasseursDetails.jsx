@@ -62,12 +62,14 @@ const MatelasseursDetails = () => {
           />
         ))}
       </div>
-
-      <div className="matelasseur-info">
+      <div className="matelasseurTiltle">
         <a href="/contact" className="quote-button">Obtenir un devis</a>
         <h2>{matelasseur.name}</h2>
             <p className="matelasseur-description">{matelasseur.description}</p>
+            </div>
+            
 
+      <div className="matelasseur-info">
         <div className="info-banner">
         <a href="#description-content" className="info-item">Fonctionnalité</a>
         <a href="#additional-info-content" className="info-item">Caractéristique</a>
