@@ -1,88 +1,143 @@
 .destructeurs-container {
-    padding: 20px;
-  
-    h1 {
-      text-align: center;
-      color: #ed1a3b;
-      margin-bottom: 10px;
-    }
-  
-    p {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-    }
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: center;
+ 
+ 
+  h1 {
+    text-align: center;
+    color: #ed1a3b;
+    font-size: 2rem; /* Taille de police plus grande */
     margin-bottom: 20px;
-    flex-wrap: wrap;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1rem; /* Texte légèrement plus grand */
+    line-height: 1.5; /* Espacement entre les lignes */
+  }
+}
+
+.tabs {
   
-    .tab-button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      border: none;
-      background-color: #6BD183;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  
-      &.active {
-        background-color: #47985a;
-        color: white;
-      }
-  
-      &:hover {
-        background-color: #6BD183;
-      }
+  justify-content: center;
+  margin-bottom: 30px;
+ 
+
+  .tab-button {
+    padding: 12px 24px; /* Boutons plus larges */
+    margin: 5px; /* Espacement plus uniforme */
+    border: none;
+    background-color: #6BD183;
+    font-size: 1.1rem;
+    font-weight: bold; /* Texte en gras */
+    cursor: pointer;
+    border-radius: 8px; /* Boutons arrondis */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &.active {
+      background-color: #47985a;
+      color: white;
+      transform: scale(1.05); /* Effet léger pour indiquer l'état actif */
+    }
+
+    &:hover {
+      background-color: #47985a;
+      transform: scale(1.05);
     }
   }
+}
+
+.destructeurs-list {
+    display: grid; /* Utilise une grille */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes flexibles */
+    gap: 20px; /* Espacement entre les éléments */
+    margin: 0 auto; /* Centre la grille */
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.destructeur-card {
   
-  .destructeurs-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    @media (max-width: 576px) {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .destructeur-card {
-    background-color: #f4f4f4;
+    width: 300px; /* Largeur fixe ou ajustée à vos besoins */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 20px;
     text-align: center;
-  
-    .destructeur-image {
-      width: 100%;
-      height: auto;
-      margin-bottom: 15px;
-    }
-  
-    h3 {
-      color: #ed1a3b;
-      margin-bottom: 10px;
-    }
-  
-    button {
-      background-color: #ed1a3b;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #b92121;
-      }
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .destructeur-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Images arrondies */
+    margin-bottom: 15px;
+    object-fit: cover; /* Assure un bon rendu des images */
+  }
+
+  h3 {
+    color: #ed1a3b;
+    margin-bottom: 15px;
+    font-size: 1.2rem; /* Titre plus visible */
+    font-weight: bold;
+  }
+
+  p {
+    color: black;
+    font-size: 0.95rem; /* Texte descriptif légèrement plus petit */
+    margin-bottom: 20px;
+    line-height: 1.4; /* Espacement entre les lignes */
+  }
+
+  button {
+    background-color: #6BD183;
+    color: white;
+    padding: 12px 24px; /* Boutons plus grands */
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #47985a;
+      transform: scale(1.05); /* Agrandit légèrement le bouton au survol */
     }
   }
-  
+}
+
+@media (max-width: 768px) {
+  .tabs .tab-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .destructeur-card {
+    padding: 15px;
+  }
+
+  .destructeurs-list {
+    gap: 15px; /* Réduit l'espacement entre les cartes */
+  }
+}
+
+@media (max-width: 576px) {
+  .tabs {
+    flex-direction: column; /* Les onglets passent en colonne */
+  }
+
+  .tabs .tab-button {
+    margin-bottom: 10px;
+  }
+
+  .destructeur-card {
+    padding: 12px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem; /* Réduit la taille des boutons */
+  }
+}

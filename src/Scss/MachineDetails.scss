@@ -18,21 +18,17 @@
 
   .image-container {
     flex: 1;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 10px auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 500px;                 /* Largeur de l'image principale */
-    height: 500px;                /* Hauteur de l'image principale */
-    overflow: hidden;            /* Cache les parties de l'image qui débordent */
-
+    align-items: left;
+    justify-content: left;
+    max-width: 500px;
+    height: auto;
+    margin-left: 4rem;
     img {
-      width: 100%;
-      width: 440px;
+      width: 400px;
       height: auto;
-      object-fit: contain;        /* Assure que l'image reste proportionnelle sans déformer */
-      transition: transform 0.3s ease-in-out;
+      object-fit: contain;
     }
   }
 
@@ -44,6 +40,7 @@
     .thumbnail {
       width: 80px;
       height: 80px;
+      margin-left: 1rem;
       object-fit: cover;
       cursor: pointer;
       border: 2px solid transparent;
@@ -71,7 +68,7 @@
     position: absolute;            /* Place le bandeau par rapport au document */
     left: 0;                       /* Aligne au bord gauche */
     right: 0;  
-    margin-top: 30rem;                    /* Aligne au bord droit */
+    margin-top: 26rem;                    /* Aligne au bord droit */
   
     .info-item {
       font-size: 1.2rem;           /* Taille du texte */
@@ -95,7 +92,6 @@
     .machine-description {
       font-weight: bold;
       color: black;
-      
       margin-bottom: 20px;
     }
 
@@ -148,7 +144,7 @@
   .description-container .description-content {
     font-size: 1.1rem;
     width: 100%;
-    margin-top: 5rem;           /* Ajuste la marge supérieure pour espacer davantage */
+    margin-top: 6rem;           /* Ajuste la marge supérieure pour espacer davantage */
     margin-bottom: 20px;
     
     p {
@@ -193,20 +189,43 @@
   }
 }
 
+@media (max-width: 937px) {
+  .machine-details {
+    .info-banner {
+       margin-top: 47rem; 
+       .info-item {
+       font-size: 1rem;
+       }
+     }
+    }
+}
+
+@media (max-width: 673px) {
+  .machine-details {
+  .info-banner {
+     margin-top: 47rem;
+   }
+  }
+ }
+
+ @media (max-width: 555px) {
+  .machine-details {
+  .info-banner {
+     margin-top: 55rem;
+   }
+  }
+ }
+
 /* Styles responsive */
-@media (max-width: 768px) {
+@media (max-width: 368px) {
   .machine-details {
     flex-direction: column;     /* Colonne pour les écrans plus petits */
     padding: 15px;
-    .info-banner {
-      margin-top: 50rem; 
-    }
+    // .info-banner {
+    //   margin-top: 50rem; 
+    // }
   }
 
-  .image-container {
-    width: 100%;
-    height: auto;
-  }
 
   .machine-details .image-thumbnails {
     flex-direction: row;        /* Affiche les miniatures en ligne */

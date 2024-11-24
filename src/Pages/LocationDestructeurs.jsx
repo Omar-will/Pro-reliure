@@ -48,21 +48,19 @@ const LocationDestructeurs = () => {
   }, [category]); // Met à jour lorsque la catégorie change
 
   return (
-    <div className="location-destructeurs-container">
-      <div className="location-destructeurs-list">
-        {locationItems.map((item) => (
-          <div className="destructeur-card" key={item.id}>
-            <img src={item.image} alt={item.name} className="destructeur-image" />
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <p>Stock: {item.stock}</p>
-            <Link to={`/location/destructeur/${item.id}`}>
-              <button>Voir les détails</button>
-            </Link>
-          </div>
-        ))}
-      </div>
+    <div className="destructeurs-list">
+  {locationItems.map((item) => (
+    <div className="destructeur-card" key={item.id}>
+      <img src={item.image} alt={item.name} className="destructeur-image" />
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
+      <p>Stock: {item.stock}</p>
+      <Link to={`/location/destructeur/${item.id}`}>
+        <button>Voir les détails</button>
+      </Link>
     </div>
+  ))}
+</div>
   );
 };
 

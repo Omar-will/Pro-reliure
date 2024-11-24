@@ -32,13 +32,13 @@
     width: 40%;
     h2 {
       font-size: 2rem;
-      color: #871825;
+      color: black;
     }
 
     .location-description {
       font-size: 1.2rem;
       line-height: 1.6;
-      color: #555;
+      color: black;
     }
   }
 
@@ -52,10 +52,10 @@
     height: auto;
     
     img {
-      width: 400px;
+      width: 350px;
       height: auto;
       margin: 1rem;
-      margin-right: 45rem;
+      margin-right: 30rem;
       object-fit: contain;
     }
   }
@@ -65,7 +65,7 @@
     flex-direction: column;      /* Organise les miniatures en colonne */
     gap: 10px;
     position: absolute; /* Permet de positionner à un endroit précis */
-    top: 250px;
+    top: 280px;
     right: 650px;
 
     .thumbnail {
@@ -97,7 +97,7 @@
     position: absolute;            /* Place le bandeau par rapport au document */
     left: 0;                       /* Aligne au bord gauche */
     right: 0;  
-    margin-top: 30rem; 
+    margin-top: 38rem; 
     margin-bottom: 8rem;                   /* Aligne au bord droit */
   
     .info-item {
@@ -132,13 +132,13 @@
   }
   
   .description-container {
-    margin-top: 8rem;
+    margin-top: 12rem;
   }
   .rental-section {
     width: 100%;
     max-width: 350px;
-    height: 330px;
-    margin-top: 6rem;
+    height: 430px;
+    margin-top: 8rem;
     padding: 10px;
     background: #fff;
     border: 1px solid #ddd;
@@ -254,7 +254,7 @@
 }
 
 .contact-form .submit-btn {
-  background-color: #871825;
+  background-color: #6BD183;
   color: white;
   font-size: 1.1rem;
   padding: 12px;
@@ -264,7 +264,7 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #b03035;
+    background-color: #47985a;
   }
 
   &:disabled {
@@ -337,20 +337,135 @@
   margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-  .contact-form {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .contact-form .date-selection {
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .location-details {
     flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .contact-form .date-selection div {
-    width: 100%;
+    .location-info {
+      position: relative;
+      top: auto;
+      right: auto;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      margin: 0 auto;
+    }
+
   }
+  .image-container {
+    flex: 1;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    height: auto;
+    
+    img {
+      width: 250px;
+      height: auto;
+      margin: 1rem;
+      margin-right: 20rem;
+      object-fit: contain;
+    }
+  }
+  .image-thumbnails {
+
+    flex-direction: row;
+    justify-content: center;
+    top: 108%;
+  }
+}
+
+@media (max-width: 911px) {
+  .rental-section {
+    max-width: 100%;
+    margin-top: 11rem;
+  }
+  .description-container {
+    margin-top: 3rem;
+  }
+  .image-thumbnails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 85%;
+  }
+  .image-container {
+    flex: 1;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    height: auto;
+    
+    img {
+      width: 200px;
+      height: auto;
+      margin: 1rem;
+      margin-right: 20rem;
+      object-fit: contain;
+    }
+  }
+  .info-banner {
+    margin-top: 27rem; 
+    margin-bottom: 8rem;
+  }
+}
+
+@media (max-width: 805px) {
+  .info-banner {
+  .info-item {
+    font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .location-details {
+    padding: 10px;
+
+    .info-banner {
+      flex-wrap: wrap;
+    }
+
+    .rental-section {
+      max-width: 100%;
+    }
+
+    .description-container {
+      margin-top: 5rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .location-details {
+    .image-container img {
+      width: 100%;
+    }
+
+    .description-container,
+    .rental-section {
+      max-width: 100%;
+      padding: 10px;
+    }
+
+    .info-banner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .info-banner {
+    .info-item {
+      font-size: 0.6rem;
+      }
+    }
 }
 
 }

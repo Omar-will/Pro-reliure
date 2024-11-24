@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import '../Scss/MachineDetailsLocation.scss';
 
-// Configuration Firebase
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAzf5uhhb6jaF46e6SsW46SlHYVHPetWCk",
   authDomain: "stock-proreliure.firebaseapp.com",
@@ -17,30 +17,30 @@ const firebaseConfig = {
   measurementId: "G-15SVBHWPFH",
 };
 
-// Initialisation de Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const LocationDetails = () => {
-  const { id } = useParams(); // Récupérer l'ID depuis les paramètres d'URL
+  const { id } = useParams();
   const [locationItem, setLocationItem] = useState(null);
   const [selectedImage, setSelectedImage] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [calculatedPrice, setCalculatedPrice] = useState(0);
+  const [calculatedPrice, setCalculatedPrice] = useState({ totalHT: 0, totalTTC: 0 });
   const [errorMessage, setErrorMessage] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false); // Etat du modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Récupérer les détails de l'élément de location depuis Firestore
+  // Fetch item details from Firestore
   useEffect(() => {
     const fetchLocationItem = async () => {
       try {
-        const locationDoc = doc(db, 'location', id); // Collection `location`
+        const locationDoc = doc(db, 'location', id);
         const locationSnapshot = await getDoc(locationDoc);
         if (locationSnapshot.exists()) {
           const data = locationSnapshot.data();
           setLocationItem(data);
-          setSelectedImage(data.images?.[0] || ''); // Image par défaut
+          setSelectedImage(data.images?.[0] || '');
         } else {
           setErrorMessage("Élément de location non trouvé.");
         }
@@ -53,32 +53,33 @@ const LocationDetails = () => {
     fetchLocationItem();
   }, [id]);
 
-  // Calcul du prix basé sur les dates sélectionnées
+  // Calculate price based on selected dates
   const calculatePrice = useCallback(() => {
     if (!startDate || !endDate || !locationItem) return;
 
     const dayCount = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
-    let price = dayCount * locationItem.basePrice;
 
-    if (locationItem.discounts) {
-      const applicableDiscount = locationItem.discounts
-        .sort((a, b) => b.days - a.days)
-        .find(discount => dayCount >= discount.days);
+    let totalHT = 0;
 
-      if (applicableDiscount) {
-        price -= (price * applicableDiscount.discount) / 100;
-      }
+    // Tarification basée sur la grille
+    if (dayCount === 1) {
+      totalHT = 198 * dayCount; // Prix HT sans réduction
+    } else if (dayCount >= 2 && dayCount <= 5) {
+      totalHT = 198 * dayCount * 0.95; // Réduction 5%
+    } else if (dayCount > 5 && dayCount <= 7) {
+      totalHT = 198 * dayCount * 0.90; // Réduction 10%
+    } else if (dayCount > 7) {
+      totalHT = 198 * dayCount * 0.85; // Réduction 15%
     }
 
-    setCalculatedPrice(price);
+    const totalTTC = totalHT * 1.2; // Ajout de la TVA (20%)
+    setCalculatedPrice({ totalHT, totalTTC });
   }, [startDate, endDate, locationItem]);
 
-  // Recalcul du prix lors du changement des dates
   useEffect(() => {
     calculatePrice();
   }, [calculatePrice]);
 
-  // Fonction pour ouvrir/fermer le modal
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   if (!locationItem && !errorMessage) {
@@ -123,16 +124,22 @@ const LocationDetails = () => {
 
             {/* Affichage du prix calculé */}
             <div className="price-display">
-              <p>Prix total pour la période sélectionnée :</p>
+              <p>Prix HT :</p>
               <strong>
-                {calculatedPrice
-                  ? `${calculatedPrice.toFixed(2)} €`
+                {calculatedPrice.totalHT
+                  ? `${calculatedPrice.totalHT.toFixed(2)} € HT`
+                  : 'Veuillez sélectionner des dates.'}
+              </strong>
+              <p>Prix TTC :</p>
+              <strong>
+                {calculatedPrice.totalTTC
+                  ? `${calculatedPrice.totalTTC.toFixed(2)} € TTC`
                   : 'Veuillez sélectionner des dates.'}
               </strong>
             </div>
 
             {/* Bouton Réserver ou Modal */}
-            {calculatedPrice > 0 && (
+            {calculatedPrice.totalTTC > 0 && (
               <button onClick={toggleModal} className="reserve-button">
                 Réserver
               </button>

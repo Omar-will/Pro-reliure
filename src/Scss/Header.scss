@@ -178,11 +178,21 @@
     display: none; /* Cacher le menu par défaut */
     flex-direction: column;
     position: absolute;
-    top: 120px;
+    top: 150px;
     left: 0;
     width: 100%;
     background: #ed1a3b;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
+  }
+
+  .showRoom, .phone-contact {
+    font-size: 0.9rem;
+  }
+  .phone-contact {
+    position: absolute; /* ou position: fixed */
+  right: 10px;
+  top: 4%;
+  margin-right: 20px;
   }
 
   .nav-links.active {
@@ -220,13 +230,13 @@
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 
-  .phone-contact {
-    margin-left: 20px;
-    top: 90px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: black;
-  }
+  // .phone-contact {
+  //   margin-left: 20px;
+  //   top: 90px;
+  //   font-size: 0.8rem;
+  //   font-weight: 700;
+  //   color: black;
+  // }
 
   .nav-links.active {
     display: flex; /* Afficher le menu lorsque la classe active est ajoutée */
