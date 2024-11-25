@@ -18,11 +18,29 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : effet d'ombre */
 }
 
-.logo img {
-  height: 50px;
-  width: auto;
-  margin-left: 15px;
+// .logo img {
+//   height: 50px;
+//   width: auto;
+//   margin-left: 15px;
+// }
+
+.logo {
+  font-family: Arial, sans-serif;
+  font-size: 34px; /* Ajustez selon vos besoins */
+  font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
 }
+
+.logo .pro {
+  color: #144fe0; /* Couleur bleue pour PRO */
+}
+
+.logo {
+  color: black; /* Couleur noire pour le reste */
+}
+
 
 .nav-links {
   list-style: none;

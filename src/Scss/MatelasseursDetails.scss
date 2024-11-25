@@ -33,6 +33,12 @@
       width: 400px;
       height: auto;
       object-fit: contain;
+      transition: transform 0.3s ease-in-out; /* Transition fluide pour le zoom */
+      
+      &:hover {
+        transform: scale(1.6); /* Agrandit l'image de 10% au survol */
+        z-index: 1;
+      }
     }
   }
 

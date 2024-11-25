@@ -89,11 +89,10 @@ const Header = () => {
   return (
     <header className="navbar">
       <nav>
-        <div className="logo">
-          <Link to="/">
-            <img src="/images/proreliure.webp" alt="Logo"/>
-          </Link>
-        </div>
+      <div class="logo">
+        <span class="pro">PRO</span><span class="reliure">RELIURE</span>
+      </div>
+
       <div className="banner">
         <button className="hamburger" onClick={toggleMenu}>
           <span className="bar"></span>
