@@ -4,7 +4,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import '../Scss/searchResults.scss';
 
-
 // Configuration Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyAzf5uhhb6jaF46e6SsW46SlHYVHPetWCk",
@@ -24,40 +23,43 @@ const SearchResults = () => {
   const location = useLocation();
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [sortOrder] = useState('popularity'); // État pour le tri
-  const [keywords] = useState(""); // État pour les mots-clés
+  const [error, setError] = useState(null);
+  const [sortOrder] = useState('popularity');
+  const [keywords] = useState("");
 
   const fetchSearchResults = useCallback(async () => {
     try {
-      const searchQuery = location.state?.searchQuery || ""; // Utiliser le terme de recherche depuis l'état de navigation
-      console.log("État de navigation :", location.state); // Debug
-      console.log("Requête de recherche :", searchQuery); // Debug
+      const searchQuery = location.state?.searchQuery || "";
 
       const machinesRef = collection(db, 'machines');
-      const querySnapshot = await getDocs(machinesRef);
-      const machines = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      console.log("Machines récupérées :", machines); // Debug
+      const matelasseursRef = collection(db, 'matelasseurs');
+      const locationRef = collection(db, 'location');
+      
+      const machinesSnapshot = await getDocs(machinesRef);
+      const matelasseursSnapshot = await getDocs(matelasseursRef);
+      const locationSnapshot = await getDocs(locationRef);
 
-      // Filtrer les machines en fonction du terme de recherche
-      const filteredMachines = machines.filter(machine => {
+      const machines = machinesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data(), type: 'machine' }));
+      const matelasseurs = matelasseursSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data(), type: 'matelasseur' }));
+      const locations = locationSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data(), type: 'location' }));
+
+      const allResults = [...machines, ...matelasseurs, ...locations];
+
+      // Filtrage des résultats par terme de recherche
+      const filteredResults = allResults.filter(result => {
         const searchTerm = searchQuery.toLowerCase();
-        
-        // Vérification si le terme de recherche correspond à l'un des champs
-        const keywordsMatch = machine.keywords?.some(keyword => 
-          keyword.toLowerCase().includes(searchTerm)
-        );
-
         const descriptionMatch =
-          machine.description.toLowerCase().includes(searchTerm) ||
-          (machine.additionalDescription && machine.additionalDescription.toLowerCase().includes(searchTerm)) ||
-          (machine.additionalDetails && machine.additionalDetails.toLowerCase().includes(searchTerm));
+          result.description?.toLowerCase().includes(searchTerm) ||
+          (result.additionalDescription && result.additionalDescription.toLowerCase().includes(searchTerm)) ||
+          (result.additionalDetails && result.additionalDetails.toLowerCase().includes(searchTerm));
 
-        return keywordsMatch || descriptionMatch || machine.name.toLowerCase().includes(searchTerm);
+        return descriptionMatch || result.name?.toLowerCase().includes(searchTerm);
       });
 
-      setResults(filteredMachines);
+      setResults(filteredResults);
     } catch (error) {
-      console.error("Erreur lors de la récupération des données :", error);
+      setError("Une erreur est survenue lors du chargement des résultats.");
+      console.error("Erreur:", error);
     } finally {
       setLoading(false);
     }
@@ -67,46 +69,59 @@ const SearchResults = () => {
     fetchSearchResults();
   }, [fetchSearchResults]);
 
-  // Fonction pour trier les résultats
   const sortedResults = results.sort((a, b) => {
     if (sortOrder === 'popularity') {
-      return b.popularity - a.popularity; // Tri par popularité (assurez-vous que ce champ existe)
+      return b.popularity - a.popularity;
     } else if (sortOrder === 'date') {
-      return new Date(b.dateAdded) - new Date(a.dateAdded); // Tri par date d'ajout (assurez-vous que ce champ existe)
+      return new Date(b.dateAdded) - new Date(a.dateAdded);
     }
-    return 0; // Aucune modification si aucun tri n'est sélectionné
+    return 0;
   });
 
-  // Filtrer par mots-clés
-  const finalResults = sortedResults.filter(machine => {
-    if (!keywords) return true; // Si aucun mot-clé, afficher tous
+  const finalResults = sortedResults.filter(result => {
+    if (!keywords) return true;
     const keywordLower = keywords.toLowerCase();
-    return machine.keywords?.some(keyword => keyword.toLowerCase().includes(keywordLower)) || 
-           machine.name.toLowerCase().includes(keywordLower) || 
-           machine.description.toLowerCase().includes(keywordLower);
+    return result.keywords?.some(keyword => keyword.toLowerCase().includes(keywordLower)) || 
+           result.name?.toLowerCase().includes(keywordLower) || 
+           result.description?.toLowerCase().includes(keywordLower);
   });
 
   if (loading) {
     return <h2>Chargement des résultats...</h2>;
   }
 
+  if (error) {
+    return <h2>{error}</h2>;
+  }
+
   return (
     <div className="search-results">
-      <div>
-        
-      </div>
       {finalResults.length > 0 ? (
-        finalResults.map(machine => (
-          <div className="machine-card" key={machine.id}>
-            <img src={machine.image} alt={machine.name} className="machine-image" />
-            <h3>{machine.name}</h3>
-            <p>{machine.description}</p>
-            <p>Stock: {machine.stock}</p>
-            <Link to={`/machines/${machine.id}`}>
-              <button>Voir le produit</button>
-            </Link>
-          </div>
-        ))
+        <div className="results-container">
+          {finalResults.map(result => {
+            // Définir l'URL du lien en fonction du type
+            let linkTo = '';
+            if (result.type === 'machine') {
+              linkTo = `/machines/${result.id}`;
+            } else if (result.type === 'matelasseur') {
+              linkTo = `/matelasseurs/${result.id}`;
+            } else if (result.type === 'location') {
+              linkTo = `/location/destructeur/${result.id}`;
+            }
+
+            return (
+              <div className="result-card" key={result.id}>
+                <img src={result.image} alt={result.name} className="result-image" />
+                <h3>{result.name}</h3>
+                <p>{result.description}</p>
+                <p>Stock: {result.stock}</p>
+                <Link to={linkTo}>
+                  <button>Voir le produit</button>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       ) : (
         <h2>Aucun résultat trouvé</h2>
       )}

@@ -7,6 +7,7 @@ const SearchBar = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(query); 
+    setQuery('');
   };
 
   return (

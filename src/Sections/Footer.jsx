@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTruck, FaWrench, FaHeadset } from 'react-icons/fa';
+import { FaTruck, FaWrench, FaHeadset, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../Scss/Footer.scss';
 
@@ -19,11 +19,11 @@ const Footer = ({ setIsMenuOpen }) => {
         <FaHeadset /> Assistance commerciale
       </div>
       <div className="icon-container">
-        <FaHeadset /> 
+        <FaEnvelope /> 
         <a href="mailto:contact@proreliure.fr">contact@proreliure.fr</a>
       </div>
       <div className="icon-container">
-        <FaHeadset /> Contact par téléphone : 06 52 52 81 51
+        <FaPhone /> Contact par téléphone : 06 52 52 81 51
       </div>
     </div>
 
