@@ -13,6 +13,21 @@ footer {
 .section {
   flex: 1;
   padding: 5px; /* Réduit l'espace intérieur des sections */
+
+  &.center-column {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 3rem;
+
+    .pro {
+      color: #c7c6c6; /* Exemple de couleur pour "DESTRUCTEURS" */
+      font-weight: 800;
+    }
+
+    .reliure {
+      color: #ffffff; /* Exemple de couleur pour "-ARCHIVES" */
+    }
+  }
 }
 
 .left-column {
@@ -57,4 +72,22 @@ a {
 
 .phone-contact2 {
   margin-top: 5px; /* Réduit l'espace en haut */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Passe en colonne pour les petits écrans */
+    gap: 10px;
+  }
+
+  .left-column,
+  .right-column {
+    text-align: center; /* Centre les textes pour les petits écrans */
+    margin: 0; /* Supprime les marges inutiles */
+  }
+
+  .center-column {
+    margin-top: 1rem; /* Réduit l'espacement en haut */
+    font-size: 1.2rem; /* Diminue légèrement la taille du texte */
+  }
 }

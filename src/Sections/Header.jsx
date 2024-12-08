@@ -90,7 +90,7 @@ const Header = () => {
     <header className="navbar">
       <nav>
       <div class="logo">
-        <span class="pro">PRO</span><span class="reliure">RELIURE</span>
+        <span class="pro">DESTRUCTEURS</span><span class="reliure">-ARCHIVES</span>
       </div>
 
       <div className="banner">

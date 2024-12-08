@@ -16,6 +16,7 @@
   margin: 0;/* Texte blanc */
   padding: 0.5rem ;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : effet d'ombre */
+  
 }
 
 // .logo img {
@@ -26,7 +27,7 @@
 
 .logo {
   font-family: Arial, sans-serif;
-  font-size: 34px; /* Ajustez selon vos besoins */
+  font-size: 30px; /* Ajustez selon vos besoins */
   font-weight: bold;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -34,11 +35,12 @@
 }
 
 .logo .pro {
-  color: #144fe0; /* Couleur bleue pour PRO */
+  color: black; 
+  font-weight: 800;
 }
 
 .logo {
-  color: black; /* Couleur noire pour le reste */
+  color: rgb(58, 58, 58); /* Couleur noire pour le reste */
 }
 
 
@@ -72,8 +74,8 @@
 .nav-links a:hover,
 .dropdown-button:hover {
   color: #fff;
-  background-color: #ed1a3b; /* Couleur rouge vif */
-  border-color: #ed1a3b; /* Bordure rouge au survol */
+  background-color: #6BD183; /* Couleur rouge vif */
+  border-color: #6BD183; /* Bordure rouge au survol */
   border-radius: 4px; /* Optionnel : arrondir les coins */
 }
 
@@ -158,10 +160,10 @@
 
 .phone-contact {
   position: absolute; /* ou position: fixed */
-  right: 40%;
-  top: 1%;
+  right: 35%;
+  top: 3%;
   margin-right: 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: black;
 }
@@ -169,9 +171,9 @@
 .showRoom{
   position: absolute; /* ou position: fixed */
   right: 10px;
-  top: 1%;
+  top: 3%;
   margin-right: 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: black;
 }
@@ -199,17 +201,19 @@
     top: 150px;
     left: 0;
     width: 100%;
-    background: #ed1a3b;
+    background: #6BD183;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 
   .showRoom, .phone-contact {
     font-size: 0.9rem;
+    margin-top: 5rem;
+    color: white;
   }
   .phone-contact {
     position: absolute; /* ou position: fixed */
   right: 10px;
-  top: 4%;
+  top: 6%;
   margin-right: 20px;
   }
 
@@ -232,6 +236,7 @@
 
   .hamburger {
     display: flex; /* Afficher le hamburger dans les petits écrans */
+    margin-top: 5px;
   }
 }
 
@@ -241,10 +246,10 @@
     display: none; /* Cacher le menu par défaut */
     flex-direction: column;
     position: absolute;
-    top: 120px;
+    top: 150px;
     left: 0;
     width: 100%;
-    background: #ed1a3b;
+    background: #6BD183;;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
 

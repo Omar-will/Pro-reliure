@@ -2,6 +2,7 @@
   display: flex;
   list-style: none;
   padding: 0;
+  margin-left: 1rem;
   align-items: center; // Aligne les éléments sur la même ligne verticalement
 
   li {
@@ -21,7 +22,7 @@
     &:not(:last-child)::after {
       content: " / ";
       margin-left: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       display: inline; // Assure que le '/' est traité comme du texte
       align-self: center; // S'assure que l'élément est centré par rapport au parent
     }
