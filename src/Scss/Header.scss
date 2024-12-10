@@ -207,14 +207,19 @@
 
   .showRoom, .phone-contact {
     font-size: 0.9rem;
-    margin-top: 5rem;
     color: white;
   }
   .phone-contact {
     position: absolute; /* ou position: fixed */
-  right: 10px;
-  top: 6%;
-  margin-right: 20px;
+    right: 10px;
+    top: 19%;
+    margin-right: 20px;
+  }
+  .showRoom {
+    position: absolute; /* ou position: fixed */
+    right: 10px;
+    top: 14%;
+    margin-right: 20px;
   }
 
   .nav-links.active {
@@ -276,8 +281,18 @@
 
 @media (max-width: 810px) {
   .phone-contact {
-    
     font-size: 0.8rem;
     font-weight: 800;
+  }
+}
+
+@media (max-width: 370px) {
+  .phone-contact {
+    font-size: 0.6rem;
+    font-weight: 800;
+  }
+  .showRoom {
+    top: 130px;  
+    font-size: 0.6rem;
   }
 }

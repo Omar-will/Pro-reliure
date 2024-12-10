@@ -1,6 +1,4 @@
 .destructeurs-container {
- 
- 
   h1 {
     text-align: center;
     color: black;
@@ -18,10 +16,8 @@
 }
 
 .tabs {
-  
   justify-content: center;
   margin-bottom: 30px;
- 
 
   .tab-button {
     padding: 12px 24px; /* Boutons plus larges */
@@ -48,32 +44,24 @@
 }
 
 .destructeurs-list {
-    display: grid; /* Utilise une grille */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes flexibles */
-    gap: 20px; /* Espacement entre les éléments */
-    margin: 0 auto; /* Centre la grille */
-    margin-left: 1.5rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .destructeur-card {
-  
-    width: 300px; /* Largeur fixe ou ajustée à vos besoins */
-    height: auto; /* Ajuste la hauteur automatiquement */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 100%;
+  text-align: center;
 
   .destructeur-image {
     width: 100%;
-    height: auto;
-    border-radius: 8px; /* Images arrondies */
-    margin-bottom: 15px;
-    object-fit: cover; /* Assure un bon rendu des images */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
   }
 
   h3 {
@@ -107,20 +95,21 @@
     }
   }
 }
+@media (max-width: 1024px) {
+  .destructeurs-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
-@media (max-width: 768px) {
+@media (max-width: 721px) {
   .tabs .tab-button {
     padding: 10px 20px;
     font-size: 1rem;
   }
 
-  .destructeur-card {
-    padding: 15px;
-  }
-
   .destructeurs-list {
-    gap: 15px; /* Réduit l'espacement entre les cartes */
-  }
+      grid-template-columns: repeat(2, 1fr); 
+}
 }
 
 @media (max-width: 576px) {
@@ -136,8 +125,13 @@
     padding: 12px;
   }
 
+  .destructeurs-list {
+    grid-template-columns: 1fr;
+  }
+
   button {
     padding: 10px 20px;
     font-size: 0.9rem; /* Réduit la taille des boutons */
   }
 }
+

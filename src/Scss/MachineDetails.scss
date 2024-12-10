@@ -209,7 +209,7 @@
 @media (max-width: 673px) {
   .machine-details {
   .info-banner {
-     margin-top: 47rem;
+     margin-top: 50rem;
    }
   }
  }
@@ -218,25 +218,59 @@
   .machine-details {
   .info-banner {
      margin-top: 55rem;
-   }
+    }
+    .machine-details, .info-banner .info-item {
+      font-size: 0.7rem;
+    }
   }
- }
+  }
 
+  @media (max-width: 555px) {
+    .machine-details {
+    .info-banner {
+       margin-top: 60rem;
+      }
+    }
+  }
+
+  @media (max-width: 477px) {
+    .machine-details {
+    .info-banner {
+       margin-top: 45rem;
+      }
+      .image-container {
+        flex: 1;
+        margin: 0;
+        max-width: 400px;
+        height: auto;
+        margin-left: 5rem;
+        top: 20%;
+      }
+      .machine-info {
+        flex: 2;
+        padding-left: 10px;
+        display: flex;
+        margin-left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+    }
+  }
+ 
 /* Styles responsive */
 @media (max-width: 368px) {
   .machine-details {
     flex-direction: column;     /* Colonne pour les écrans plus petits */
     padding: 15px;
-    // .info-banner {
-    //   margin-top: 50rem; 
-    // }
+    .info-banner {
+      margin-top: 50rem;
+     }
   }
-
-
+}
+@media (max-width: 477px) {
   .machine-details .image-thumbnails {
     flex-direction: row;        /* Affiche les miniatures en ligne */
-    gap: 10px;
-  }
+    gap: 0.5px;
 
   .machine-info {
     padding-left: 0;
@@ -247,6 +281,14 @@
     width: 100%;
     padding: 12px;
   }
+  }
+  .machine-details .image-container img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -262,3 +304,116 @@
     font-size: 1rem;
   }
 }
+@media (max-width: 320px) {
+  .machine-details {
+    padding: 10px;
+    flex-direction: column;
+
+    .info-banner {
+      margin-top: 70rem; /* Ajuste la marge selon ton contenu */
+      font-size: 0.7rem; /* Réduit la taille du texte */
+    }
+
+    .image-container {
+      max-width: 300px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    .image-thumbnails {
+      flex-direction: row; /* Aligne les miniatures en ligne */
+      justify-content: center;
+      gap: 1px;
+
+      .thumbnail {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .machine-info {
+      width: 100%;
+      padding-left: 0;
+
+      .quote-button {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+
+      .pdf-container {
+        a {
+          font-size: 0.8rem;
+          padding: 8px 15px;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem; /* Taille de titre réduite */
+    }
+
+    .machine-description {
+      font-size: 0.9rem; /* Ajuste la description */
+    }
+
+    .description-container .description-content {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .machine-details {
+    padding: 5px;
+
+    .info-banner {
+      margin-top: 75rem;
+      font-size: 0.6rem;
+    }
+
+    .image-container {
+      max-width: 250px;
+
+      img {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    .image-thumbnails {
+      .thumbnail {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .machine-info {
+      .quote-button {
+        font-size: 0.7rem;
+        padding: 8px;
+      }
+
+      .pdf-container a {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+      }
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .machine-description {
+      font-size: 0.8rem;
+    }
+
+    .description-container .description-content {
+      font-size: 0.7rem;
+    }
+  }
+}
+
