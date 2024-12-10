@@ -1,7 +1,31 @@
-import React from 'react';
-import '../Scss/Contact.scss'; 
+import React from "react";
+import emailjs from "emailjs-com";
+import "../Scss/Contact.scss";
 
 const Contact = () => {
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_7pba7t4", // Remplacez par votre Service ID
+        "template_wpq8t7s", // Remplacez par votre Template ID
+        e.target,
+        "bRuyjX8eO_jXjKNDl" // Remplacez par votre Public Key
+      )
+      .then(
+        (result) => {
+          alert("Message envoyé avec succès !");
+          console.log(result.text);
+          e.target.reset(); // Réinitialise le formulaire
+        },
+        (error) => {
+          alert("Une erreur est survenue. Veuillez réessayer.");
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <div className="contact-page">
       <div className="service-info">
@@ -20,32 +44,32 @@ const Contact = () => {
           <p>Ou par notre formulaire de contact, nous vous répondons dans les plus brefs délais.</p>
           <p>1 rue Ernest Bonin – 78100 Saint-Germain-en-Laye</p>
           <p>Contactez par téléphone au : 06 52 52 81 51</p>
-          <p>Contactez par email : contact@proreliure.fr</p>
+          <p>Contactez par email : contact@destructeurs-archives.fr</p>
         </div>
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={sendEmail}>
           <label>
             Votre entreprise (obligatoire)
-            <input type="text" required />
+            <input type="text" name="entreprise" required />
           </label>
           <label>
             Votre nom (obligatoire)
-            <input type="text" required />
+            <input type="text" name="nom" required />
           </label>
           <label>
             E-mail (obligatoire)
-            <input type="email" required />
+            <input type="email" name="email" required />
           </label>
           <label>
             Téléphone (obligatoire)
-            <input type="tel" required />
+            <input type="tel" name="telephone" required />
           </label>
           <label>
             Objet (obligatoire)
-            <input type="text" required />
+            <input type="text" name="objet" required />
           </label>
           <label>
             Type de service (obligatoire)
-            <select required>
+            <select name="service" required>
               <option value="">Sélectionner...</option>
               <option value="achat">Achat</option>
               <option value="location">Location</option>
@@ -53,15 +77,11 @@ const Contact = () => {
           </label>
           <label>
             Votre message (obligatoire)
-            <textarea required></textarea>
-          </label>
-          <label>
-            Choisir un fichier
-            <input type="file" />
+            <textarea name="message" required></textarea>
           </label>
           <label>
             J'accepte la politique de confidentialité.
-            <input className="inputCase" type="checkbox" required />
+            <input className="inputCase" type="checkbox" name="confidentialite" required />
           </label>
           <button type="submit">Envoyer</button>
         </form>

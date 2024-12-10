@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import emailjs from 'emailjs-com';
 import '../Scss/MachineDetailsLocation.scss';
 
 // Firebase configuration
@@ -30,6 +31,14 @@ const LocationDetails = () => {
   const [calculatedPrice, setCalculatedPrice] = useState({ totalHT: 0, totalTTC: 0 });
   const [errorMessage, setErrorMessage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    entreprise: '',
+    nom: '',
+    email: '',
+    telephone: '',
+    objet: '',
+    message: ''
+  });
 
   // Fetch item details from Firestore
   useEffect(() => {
@@ -81,6 +90,39 @@ const LocationDetails = () => {
   }, [calculatePrice]);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const templateParams = {
+      entreprise: formData.entreprise,
+      nom: formData.nom,
+      email: formData.email,
+      telephone: formData.telephone,
+      objet: formData.objet,
+      message: formData.message,
+      startDate: startDate ? startDate.toLocaleDateString() : 'Non sélectionnée',
+      endDate: endDate ? endDate.toLocaleDateString() : 'Non sélectionnée',
+      prixHT: calculatedPrice.totalHT.toFixed(2),
+      prixTTC: calculatedPrice.totalTTC.toFixed(2)
+    };
+
+    try {
+      await emailjs.send('service_7pba7t4', 'template_ozcwc8m', templateParams, 'bRuyjX8eO_jXjKNDl');
+      alert("Formulaire envoyé avec succès !");
+      setIsModalOpen(false); // Close modal on success
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'e-mail :", error);
+      alert("Erreur lors de l'envoi du formulaire.");
+    }
+  };
 
   if (!locationItem && !errorMessage) {
     return <h2>Chargement des détails...</h2>;
@@ -225,31 +267,30 @@ const LocationDetails = () => {
           <div className="modal-content">
             <button onClick={toggleModal} className="close-btn">X</button>
             <h3>Formulaire de réservation</h3>
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleFormSubmit}>
               <label>
                 Votre entreprise (obligatoire)
-                <input type="text" required />
+                <input type="text" name="entreprise" value={formData.entreprise} onChange={handleFormChange} required />
               </label>
               <label>
                 Votre nom (obligatoire)
-                <input type="text" required />
+                <input type="text" name="nom" value={formData.nom} onChange={handleFormChange} required />
               </label>
               <label>
                 E-mail (obligatoire)
-                <input type="email" required />
+                <input type="email" name="email" value={formData.email} onChange={handleFormChange} required />
               </label>
               <label>
                 Téléphone (obligatoire)
-                <input type="tel" required />
+                <input type="tel" name="telephone" value={formData.telephone} onChange={handleFormChange} required />
               </label>
               <label>
                 Objet (obligatoire)
-                <input type="text" required />
+                <input type="text" name="objet" value={formData.objet} onChange={handleFormChange} required />
               </label>
-              
               <label>
                 Message (obligatoire)
-                <textarea required />
+                <textarea name="message" value={formData.message} onChange={handleFormChange} required />
               </label>
               {/* Ajout des dates sélectionnées */}
               <label>
@@ -258,10 +299,13 @@ const LocationDetails = () => {
               <label>
                 Date de fin : {endDate ? endDate.toLocaleDateString() : 'Non sélectionnée'}
               </label>
-              <label>
-                Joindre un fichier (facultatif)
-                <input type="file" />
-              </label>
+               {/* Affichage des prix */}
+        <label>
+          Prix HT : {calculatedPrice.totalHT ? `${calculatedPrice.totalHT.toFixed(2)} € HT` : 'Calcul en cours...'}
+        </label>
+        <label>
+          Prix TTC : {calculatedPrice.totalTTC ? `${calculatedPrice.totalTTC.toFixed(2)} € TTC` : 'Calcul en cours...'}
+        </label>
               <button type="submit" className="submit-btn">Envoyer</button>
             </form>
           </div>

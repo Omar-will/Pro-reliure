@@ -6,14 +6,18 @@ const MentionsLegales = () => {
     <div className="mentions-legales">
       <h1>Mentions Légales</h1>
       <p><strong>IDENTITÉ DE L’ÉDITEUR DU SITE INTERNET</strong></p>
-      <p>L’éditeur du site Internet https://www.proreliure.fr est la société PRORELIURE SAS</p>
+      <p>L’éditeur du site Internet https://www.destructeurs-archives.fr est la société PRORELIURE SAS</p>
       <p>Domicilié : 1 Rue Ernest Bonin</p>
       <p>78100 Saint Germain En Laye – France</p>
-      <p>Email : contact@proreliure.fr</p>
+      <p>Email : contact@destructeurs-archives.fr</p>
       <p>Numéro au registre de commerce : B 911 422 509 R.C.S VERSAILLES</p>
       <p>N° Siret : 91142250900016</p>
       <p>Code NAF : 3312Z</p>
       <p>N° de TVA Intracommunautaire : FR 14911422509</p>
+
+      <p><strong>CRÉATION DU SITE</strong></p>
+      <p>Ce site a été créé par Omar-william Bengoudifa, représentant la société OptiWeb Consulting.</p>
+
       <p><strong>HÉBERGEMENT</strong></p>
       <p>Le site Internet est hébergé par o2switch – 222-224 Boulevard Gustave Flaubert – 63000 Clermont-Ferrand – France.</p>
 
@@ -34,6 +38,7 @@ Toute exploitation non autorisée du site Internet ou de l’un quelconque des �
        <p><strong>RESPONSABILITÉ DE L’ÉDITEUR</strong></p>
        <p>L’utilisateur est seul responsable des choix qu’il fait. Ainsi, la responsabilité de l’éditeur ne saurait être engagée en raison de l’inadaptation des services du site Internet aux besoins et informations exprimés par l’utilisateur.</p>
        <p>L’éditeur n’est pas non plus responsable des conséquences dommageables liées au réseau de communication et des défaillances d’accès à Internet et de sécurité informatique de l’utilisateur.</p>
+       <p>Quelques images sont Conçu par Freepik voici le lien renvoyant vers www.freepik.com</p>
        <p><strong>PROTECTION DES DONNÉES PERSONELLES</strong></p>
        <p>L‘éditeur est susceptible de traiter des données personnelles dans le cadre de l’exploitation de son site Internet.</p>
        <p>Dans ce cadre, il s’engage à respecter la Loi n°78-17 du 6 janvier 1978 (dite « Loi informatique et libertés » ou « LIL ») et le Règlement Général sur la protection des Données Personnelles (« RGDP ») n°2016/679.</p>

@@ -90,7 +90,7 @@ Nous nous réservons le droit de modifier sans préavis les modèles et caracté
 
       <p><strong>PRORELIURE SAS</strong><br />
       Siège social : 1 Rue Ernest Bonin – 78100 Saint Germain En Laye<br />
-      Email : contact@proreliure.fr | Tel : 06 52 52 81 51</p>
+      Email : contact@destructeurs-archives.fr | Tel : 06 52 52 81 51</p>
       <p>B 911 422 509 R.C.S VERSAILLES</p>
       <p>N° SIRET : 91142250900016</p>
       <p>Code NAF : 3312Z</p>

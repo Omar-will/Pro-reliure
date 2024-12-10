@@ -89,8 +89,8 @@ const Header = () => {
   return (
     <header className="navbar">
       <nav>
-      <div class="logo">
-        <span class="pro">DESTRUCTEURS</span><span class="reliure">-ARCHIVES</span>
+      <div className="logo">
+        <span className="pro">DESTRUCTEURS</span><span className="reliure">-ARCHIVES</span>
       </div>
 
       <div className="banner">

@@ -13,14 +13,14 @@ const Footer = ({ setIsMenuOpen }) => {
         <FaTruck /> Livraison rapide
       </div>
       <div className="icon-container">
-        <FaEnvelope /> 
-        <a href="mailto:contact@proreliure.fr">contact@proreliure.fr</a>
-      </div>
-      <div className="icon-container">
         <FaHeadset /> Assistance commerciale
       </div>
       <div className="icon-container">
         <FaWrench /> Installation et dépannage
+      </div>
+      <div className="icon-container">
+        <FaEnvelope /> 
+        <a href="mailto:contact@proreliure.fr">contact@destructeurs-archives.fr</a>
       </div>
       <div className="icon-container">
         <FaPhone /> Contact par téléphone : 06 52 52 81 51
