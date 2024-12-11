@@ -225,14 +225,6 @@
   }
   }
 
-  @media (max-width: 555px) {
-    .machine-details {
-    .info-banner {
-       margin-top: 60rem;
-      }
-    }
-  }
-
   @media (max-width: 477px) {
     .machine-details {
     .info-banner {
@@ -263,14 +255,20 @@
     flex-direction: column;     /* Colonne pour les écrans plus petits */
     padding: 15px;
     .info-banner {
-      margin-top: 50rem;
+      margin-top: 44rem;
+      
      }
   }
 }
 @media (max-width: 477px) {
   .machine-details .image-thumbnails {
     flex-direction: row;        /* Affiche les miniatures en ligne */
-    gap: 0.5px;
+    gap: 0px;
+
+    .thumbnail {
+      width: 40px;
+      height: 40px;
+    }
 
   .machine-info {
     padding-left: 0;
@@ -303,15 +301,23 @@
   .machine-description {
     font-size: 1rem;
   }
+  .description-container .description-content {
+    font-size: 0.8rem;
+    width: 50%;
+  }
 }
-@media (max-width: 320px) {
+@media (max-width: 370px) {
   .machine-details {
     padding: 10px;
     flex-direction: column;
 
     .info-banner {
-      margin-top: 70rem; /* Ajuste la marge selon ton contenu */
-      font-size: 0.7rem; /* Réduit la taille du texte */
+      margin-top: 40rem; /* Ajuste la marge selon ton contenu */
+      font-size: 0.2rem; /* Réduit la taille du texte */
+    }
+    .machine-details, .info-banner .info-item {
+      font-size: 0.6rem;
+      font-weight: 800;
     }
 
     .image-container {
@@ -362,6 +368,7 @@
 
     .description-container .description-content {
       font-size: 0.8rem;
+      width: 50%;
     }
   }
 }
@@ -369,11 +376,6 @@
 @media (max-width: 280px) {
   .machine-details {
     padding: 5px;
-
-    .info-banner {
-      margin-top: 75rem;
-      font-size: 0.6rem;
-    }
 
     .image-container {
       max-width: 250px;

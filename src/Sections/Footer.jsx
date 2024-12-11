@@ -10,20 +10,20 @@ const Footer = ({ setIsMenuOpen }) => {
     {/* Colonne gauche */}
     <div className="section left-column">
       <div className="icon-container">
-        <FaTruck /> Livraison rapide
+        <FaTruck className="icon" /> Livraison rapide
       </div>
       <div className="icon-container">
-        <FaHeadset /> Assistance commerciale
+        <FaHeadset className="icon" /> Assistance commerciale
       </div>
       <div className="icon-container">
-        <FaWrench /> Installation et dépannage
+        <FaWrench className="icon" /> Installation et dépannage
       </div>
       <div className="icon-container">
-        <FaEnvelope /> 
+        <FaEnvelope className="icon" /> 
         <a href="mailto:contact@proreliure.fr">contact@destructeurs-archives.fr</a>
       </div>
       <div className="icon-container">
-        <FaPhone /> Contact par téléphone : 06 52 52 81 51
+        <FaPhone className="icon" /> Contact par téléphone : 06 52 52 81 51
       </div>
     </div>
     <div className="section center-column">

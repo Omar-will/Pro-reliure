@@ -18,12 +18,15 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : effet d'ombre */
   
 }
+.banner.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Pour rester au-dessus des autres éléments */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Ombre optionnelle */
+}
 
-// .logo img {
-//   height: 50px;
-//   width: auto;
-//   margin-left: 15px;
-// }
 
 .logo {
   font-family: Arial, sans-serif;
@@ -43,13 +46,13 @@
   color: rgb(58, 58, 58); /* Couleur noire pour le reste */
 }
 
-
 .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
   margin: 0;
   padding: 0;
+  
 }
 
 .nav-links li {
@@ -193,12 +196,47 @@
   transition: 0.3s;
 }
 
+@media (max-width: 1300px) {
+.dropdown-menu {
+  flex-direction: column;
+  max-height: 300px; /* Limite la hauteur à 300px (modifiable selon vos besoins) */
+  overflow-y: auto; /* Active le défilement vertical si le contenu dépasse */
+  scrollbar-width: thin; /* Optionnel : réduit la largeur de la barre de défilement sur Firefox */
+  scrollbar-color: #6BD183 transparent; /* Couleurs personnalisées pour la barre de défilement */
+}
+
+/* Personnalisation supplémentaire pour la barre de défilement */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px; /* Largeur de la barre de défilement */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #6BD183; /* Couleur de la barre de défilement */
+  border-radius: 4px; /* Coins arrondis */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #5AAC6C; /* Couleur au survol */
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: transparent; /* Fond de la piste */
+}
+ 
+}
+
 @media (max-width: 1200px) {
+
+  .logo {
+    font-family: Arial, sans-serif;
+    font-size: 25px; /* Ajustez selon vos besoins */
+    
+  }
   .nav-links {
     display: none; /* Cacher le menu par défaut */
     flex-direction: column;
     position: absolute;
-    top: 150px;
+    top: 70px;
     left: 0;
     width: 100%;
     background: #6BD183;
@@ -207,20 +245,16 @@
 
   .showRoom, .phone-contact {
     font-size: 0.9rem;
-    color: white;
+    color: black;
   }
-  .phone-contact {
+  .phone-contact{
     position: absolute; /* ou position: fixed */
     right: 10px;
-    top: 19%;
+    top: 0;
     margin-right: 20px;
+    
   }
-  .showRoom {
-    position: absolute; /* ou position: fixed */
-    right: 10px;
-    top: 14%;
-    margin-right: 20px;
-  }
+  
 
   .nav-links.active {
     display: flex; /* Afficher le menu lorsque la classe active est ajoutée */
@@ -247,24 +281,22 @@
 
 /* Styles pour le menu en version mobile */
 @media (max-width: 768px) {
+  .logo {
+    font-family: Arial, sans-serif;
+    font-size: 15px; /* Ajustez selon vos besoins */
+    font-weight: 900;
+    
+  }
   .nav-links {
     display: none; /* Cacher le menu par défaut */
     flex-direction: column;
     position: absolute;
-    top: 150px;
+    top: 70px;
     left: 0;
     width: 100%;
     background: #6BD183;;
     z-index: 100; /* S'assurer qu'il est au-dessus d'autres éléments */
   }
-
-  // .phone-contact {
-  //   margin-left: 20px;
-  //   top: 90px;
-  //   font-size: 0.8rem;
-  //   font-weight: 700;
-  //   color: black;
-  // }
 
   .nav-links.active {
     display: flex; /* Afficher le menu lorsque la classe active est ajoutée */
@@ -285,6 +317,18 @@
     font-weight: 800;
   }
 }
+@media (max-width: 445px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #6BD183;
+    z-index: 100;
+  }
+}
 
 @media (max-width: 370px) {
   .phone-contact {
@@ -292,7 +336,7 @@
     font-weight: 800;
   }
   .showRoom {
-    top: 130px;  
+    top: 35px;  
     font-size: 0.6rem;
   }
 }

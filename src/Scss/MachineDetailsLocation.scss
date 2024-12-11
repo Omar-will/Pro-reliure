@@ -25,19 +25,20 @@
   /* Positionne les informations principales en haut à droite */
   .location-info {
     position: absolute; /* Permet de positionner à un endroit précis */
-    top: 250px;
+    top: 220px;
     right: 20px;
     text-align: right; /* Aligne le texte à droite */
     color: #871825;
-    width: 40%;
+    width: 50%;
     h2 {
       font-size: 2rem;
       color: black;
     }
 
     .location-description {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      font-weight: 800;
+      line-height: 1.2;
       color: black;
     }
   }
@@ -71,7 +72,7 @@
     flex-direction: column;      /* Organise les miniatures en colonne */
     gap: 10px;
     position: absolute; /* Permet de positionner à un endroit précis */
-    top: 280px;
+    top: 450px;
     right: 650px;
 
     .thumbnail {
@@ -138,7 +139,7 @@
   }
   
   .description-container {
-    margin-top: 12rem;
+    margin-top: 10rem;
   }
   .rental-section {
     width: 100%;
@@ -347,19 +348,16 @@
 @media (max-width: 1200px) {
   .location-details {
     flex-direction: column;
-
+   
     .location-info {
       position: relative;
       top: auto;
       right: auto;
       text-align: center;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-
-    .image-container {
-      margin: 0 auto;
-    }
+    
 
   }
   .image-container {
@@ -375,31 +373,36 @@
       width: 250px;
       height: auto;
       margin: 1rem;
-      margin-right: 20rem;
+       margin-right: 15rem;
       object-fit: contain;
     }
   }
   .image-thumbnails {
-
     flex-direction: row;
-    justify-content: center;
-    top: 108%;
+    justify-content: center;    
+      display: flex;
+      flex-direction: column;      /* Organise les miniatures en colonne */
+      gap: 10px;
+      position: absolute; /* Permet de positionner à un endroit précis */
+      top: 350px;
+      right: 500px;
   }
-}
+  
 
-@media (max-width: 911px) {
   .rental-section {
     max-width: 100%;
     margin-top: 11rem;
   }
   .description-container {
     margin-top: 3rem;
+    
   }
   .image-thumbnails {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    top: 85%;
+    top: 75%;
+    right: 100px;
   }
   .image-container {
     flex: 1;
@@ -434,34 +437,83 @@
 
 @media (max-width: 768px) {
   .location-details {
+    flex-direction: column; /* Les éléments seront empilés verticalement */
+  }
+
+  .info-banner {
+    order: 1; /* Reste en haut */
+    
+  }
+
+  .location-info {
+    position: relative; /* Réinitialise le positionnement absolu */
+    order: 1; /* Place `.location-info` après `.info-banner` */
+    margin-top: 10px;
+    margin-bottom: 250px;
+    width: 100%;
+    text-align: center; /* Centrer le contenu */
+  }
+
+  .rental-section {
+    order: 2; /* Place `.rental-section` après `.location-info` */
+    margin: 10px auto;
+    width: 100%;
+  }
+
+  .description-container {
+    order: 4; /* Place `.description-container` après `.rental-section` */
+    margin: 10px auto;
+    width: 100%;
     padding: 10px;
-
-    .info-banner {
-      flex-wrap: wrap;
-    }
-
-    .rental-section {
-      max-width: 100%;
-    }
-
-    .description-container {
-      margin-top: 5rem;
-    }
+  }
+  .additional-info-container {
+    order: 4; /* Place `.description-container` après `.rental-section` */
+    margin: 10px auto;
+    width: 100%;
+    padding: 10px;
   }
 }
 
+@media (max-width: 600px) {
+  .video-container {
+    width: 100%; /* Adapter la largeur au conteneur */
+    max-width: 500px; /* Limiter la largeur maximale en responsive */
+    height: auto; /* Maintenir le ratio de la vidéo */
+    overflow: hidden; /* Masquer tout débordement */
+    transition: all 0.3s ease; /* Ajouter une transition pour une meilleure expérience */
+  }
+
+  .video-container iframe {
+    width: 100%; /* Ajuster la taille de la vidéo */
+    height: auto; /* Conserver le ratio */
+  }
+
+  .video-container.collapsed {
+    max-height: 0; /* Réduire la hauteur à 0 pour cacher la vidéo */
+    opacity: 0; /* Rendre la vidéo invisible */
+  }
+}
+
+@media (max-width: 530px) {
+.location-details, .location-info h2 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  color: black;
+}
+}
 @media (max-width: 480px) {
   .location-details {
     .image-container img {
       width: 100%;
+      
     }
-
+    
     .description-container,
     .rental-section {
       max-width: 100%;
       padding: 10px;
     }
-
+    
     .info-banner {
       flex-direction: column;
       text-align: center;
@@ -470,8 +522,16 @@
   .info-banner {
     .info-item {
       font-size: 0.6rem;
-      }
     }
+  }
+  .image-thumbnails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 70%;
+    right: 100px;
+  }
 }
 
 }
+

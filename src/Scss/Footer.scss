@@ -31,8 +31,86 @@ footer {
 }
 
 .left-column {
-  text-align: left;
+  
   margin-left: 2rem; /* Réduit la marge gauche */
+  align-items: center;
+}
+
+.right-column {
+  text-align: right;
+  margin-right: 2rem; /* Réduit la marge droite */
+}
+
+/* Gestion des colonnes : par défaut, gauche à droite */
+.columns-left-right {
+  flex-direction: row; /* Colonne gauche, puis colonne droite */
+}
+
+/* Inversion des colonnes : droite à gauche */
+.columns-right-left {
+  flex-direction: row-reverse; /* Colonne droite, puis colonne gauche */
+}
+
+/* Alignement vertical */
+.footer-container.vertical {
+  flex-direction: column; /* Empiler les colonnes */
+  align-items: center; /* Centrer les colonnes */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Réduit l'espacement entre les icônes */
+  margin-bottom: 5px; /* Réduit l'espace en dessous */
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px; /* Réduit l'espacement entre les liens */
+}
+
+.phone-contact2 {
+  margin-top: 5px; /* Réduit l'espace en haut */
+}
+
+footer {
+  background: linear-gradient(to right, #000000, #434343);
+  color: #fff;
+  padding: 10px; /* Réduit l'espace intérieur */
+}
+
+.footer-container {
+  display: flex;
+  gap: 15px; /* Réduit l'espacement entre les colonnes */
+  font-size: 1.1rem; /* Réduit légèrement la taille de la police */
+}
+
+.section {
+  flex: 1;
+  padding: 5px; /* Réduit l'espace intérieur des sections */
+
+  &.center-column {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 3rem;
+
+    .pro {
+      color: #c7c6c6; /* Exemple de couleur pour "DESTRUCTEURS" */
+      font-weight: 800;
+    }
+
+    .reliure {
+      color: #ffffff; /* Exemple de couleur pour "-ARCHIVES" */
+    }
+  }
+}
+
+.left-column {
+  
+  margin-left: 2rem; /* Réduit la marge gauche */
+  align-items: center;
 }
 
 .right-column {
@@ -79,15 +157,49 @@ a {
     flex-direction: column; /* Passe en colonne pour les petits écrans */
     gap: 10px;
   }
+  .icon {
+    display: none; /* Masque uniquement les icônes */
+  }
 
-  .left-column,
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espacement entre les lignes */
+    order: 2;
+  }
+  
+  .left-column .icon-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Occupe toute la largeur pour faciliter le centrage */
+  }
+  
+  .left-column .icon-container:nth-child(1) {
+    margin-right: 20px; /* Centre la première ligne */
+  }
+  
+  .left-column .icon-container:nth-child(2),
+  .left-column .icon-container:nth-child(3) {
+    margin-right: 20px; /* Ligne intermédiaire */
+  }
+  
+  .left-column .icon-container:nth-child(4),
+  .left-column .icon-container:nth-child(5) {
+    margin-right: 20px;/* Dernière ligne : alignement plein */
+  }
+  
+
   .right-column {
-    text-align: center; /* Centre les textes pour les petits écrans */
+    text-align: center; /* Centre le texte pour les petits écrans */
     margin: 0; /* Supprime les marges inutiles */
+    
   }
 
   .center-column {
-    margin-top: 1rem; /* Réduit l'espacement en haut */
+    margin-top: 1px; /* Réduit l'espacement en haut */
     font-size: 1.2rem; /* Diminue légèrement la taille du texte */
+    order: 2; /* Assure la position après .left-column */
   }
 }

@@ -84,6 +84,17 @@ const Header = () => {
     setIsMenuOpen(false);
   };
   
+  document.addEventListener("scroll", function () {
+    const banner = document.querySelector(".banner");
+    const scrollPosition = window.scrollY;
+  
+    // Ajoute ou retire la classe `fixed` en fonction de la position de défilement
+    if (scrollPosition > 50) { // Ajustez `50` selon le déclenchement souhaité
+      banner.classList.add("fixed");
+    } else {
+      banner.classList.remove("fixed");
+    }
+  });
   
 
   return (
@@ -166,9 +177,9 @@ const Header = () => {
           <li><Link to="/MatelasseurDeCartons" onClick={() => setIsMenuOpen(false)}>Matelasseur De Cartons</Link></li>
           <li><Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
         </ul>
+      </div>
         <p className="showRoom">Retrouvez notre showroom de 8h à 19h</p>
         <p className="phone-contact">Contact par téléphone : 06 52 52 81 51</p>
-      </div>
         <SearchBar onSearch={handleSearch} />
       </nav>
     </header>
