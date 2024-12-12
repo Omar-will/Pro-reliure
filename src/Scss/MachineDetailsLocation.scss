@@ -1,8 +1,8 @@
 .location-details {
   display: flex;
   justify-content: flex-start; /* Aligne les éléments à gauche */
-  padding: 20px;
-  max-width: 1200px;              /* Limite la largeur du conteneur */
+  padding: 0;
+  width: 100%;                /* Limite la largeur du conteneur */
   margin: 0 auto;                /* Centre le conteneur sur la page */
   flex-wrap: wrap; 
 
@@ -99,13 +99,12 @@
     background-color: #000000;     /* Couleur de fond */
     color: white;                  /* Couleur du texte */
     padding: 10px 0;               /* Espacement intérieur vertical */
-    width: 100vw;                  /* Prend toute la largeur visible de la fenêtre */
+    width: 100%;                  /* Prend toute la largeur visible de la fenêtre */
     margin: 0;                     /* Supprime les marges */
-    position: absolute;            /* Place le bandeau par rapport au document */
+    position: relative;            /* Place le bandeau par rapport au document */
     left: 0;                       /* Aligne au bord gauche */
     right: 0;  
-    margin-top: 38rem; 
-    margin-bottom: 8rem;                   /* Aligne au bord droit */
+                       /* Aligne au bord droit */
   
     .info-item {
       font-size: 1.2rem;           /* Taille du texte */
@@ -139,14 +138,17 @@
   }
   
   .description-container {
-    margin-top: 10rem;
+    margin-top: 3rem;
   }
   .rental-section {
     width: 100%;
     max-width: 350px;
-    height: 430px;
-    margin-top: 8rem;
-    padding: 10px;
+    height: 420px;
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+    margin-right: 1rem;
+    margin-left: 1rem;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -391,7 +393,7 @@
 
   .rental-section {
     max-width: 100%;
-    margin-top: 11rem;
+    
   }
   .description-container {
     margin-top: 3rem;
@@ -421,10 +423,7 @@
       object-fit: contain;
     }
   }
-  .info-banner {
-    margin-top: 27rem; 
-    margin-bottom: 8rem;
-  }
+  
 }
 
 @media (max-width: 805px) {
@@ -444,20 +443,35 @@
     order: 1; /* Reste en haut */
     
   }
+  .image-container {
+    flex: 1;
+    margin: 10px auto;
+    max-width: 400px;
+    height: auto;
+    
+    img {
+      width: 200px;
+      max-width: 250px;
+      height: auto;
+      margin: 1rem;
+    }
+  }
 
   .location-info {
     position: relative; /* Réinitialise le positionnement absolu */
     order: 1; /* Place `.location-info` après `.info-banner` */
-    margin-top: 10px;
-    margin-bottom: 250px;
+    
+    margin-bottom: 230px;
     width: 100%;
     text-align: center; /* Centrer le contenu */
+    padding: 30px;
   }
 
   .rental-section {
     order: 2; /* Place `.rental-section` après `.location-info` */
     margin: 10px auto;
     width: 100%;
+    padding: 20px;
   }
 
   .description-container {
@@ -472,26 +486,27 @@
     width: 100%;
     padding: 10px;
   }
-}
 
-@media (max-width: 600px) {
-  .video-container {
-    width: 100%; /* Adapter la largeur au conteneur */
-    max-width: 500px; /* Limiter la largeur maximale en responsive */
-    height: auto; /* Maintenir le ratio de la vidéo */
-    overflow: hidden; /* Masquer tout débordement */
-    transition: all 0.3s ease; /* Ajouter une transition pour une meilleure expérience */
-  }
 
-  .video-container iframe {
-    width: 100%; /* Ajuster la taille de la vidéo */
-    height: auto; /* Conserver le ratio */
-  }
+  // .video-containers {
+  //   position:relative;
+  //   top: 80%;
+  //   width: 100%; /* Adapter la largeur au conteneur */
+  //   max-width: 500px; /* Limiter la largeur maximale en responsive */
+  //   height: auto; /* Maintenir le ratio de la vidéo */
+  //   overflow: hidden; /* Masquer tout débordement */
+  //   transition: all 0.3s ease; /* Ajouter une transition pour une meilleure expérience */
+  // }
 
-  .video-container.collapsed {
-    max-height: 0; /* Réduire la hauteur à 0 pour cacher la vidéo */
-    opacity: 0; /* Rendre la vidéo invisible */
-  }
+  // .video-containers iframe {
+  //   width: 100%; /* Ajuster la taille de la vidéo */
+  //   height: auto; /* Conserver le ratio */
+  // }
+
+  // .video-containers.collapsed {
+  //   max-height: 0; /* Réduire la hauteur à 0 pour cacher la vidéo */
+  //   opacity: 0; /* Rendre la vidéo invisible */
+  // }
 }
 
 @media (max-width: 530px) {

@@ -246,8 +246,8 @@ const LocationDetails = () => {
       </div>
 
       {/* Vidéo de démonstration */}
-      {locationItem.video && (
-        <div id="video-container" className="video-container">
+      {/* {locationItem.video && (
+        <div id="video-container" className="video-containers">
           <h3>Vidéo de démonstration</h3>
           <iframe
             width="560"
@@ -259,7 +259,7 @@ const LocationDetails = () => {
             allowFullScreen
           />
         </div>
-      )}
+      )} */}
 
       {/* Modal de réservation */}
       {isModalOpen && (

@@ -1,8 +1,8 @@
 .machine-details {
   display: flex;
   justify-content: space-between; /* Espacement entre les éléments */
-  padding: 20px;
-  max-width: 1200px;              /* Limite la largeur du conteneur */
+  padding: 0;
+  width: 100%;            /* Limite la largeur du conteneur */
   margin: 0 auto;                /* Centre le conteneur sur la page */
   flex-wrap: wrap;               /* Permet aux éléments de se déplacer sur plusieurs lignes si nécessaire */
 
@@ -69,12 +69,12 @@
     background-color: #000000;     /* Couleur de fond */
     color: white;                  /* Couleur du texte */
     padding: 10px 0;               /* Espacement intérieur vertical */
-    width: 100vw;                  /* Prend toute la largeur visible de la fenêtre */
+    width: 100%;                  /* Prend toute la largeur visible de la fenêtre */
     margin: 0;                     /* Supprime les marges */
-    position: absolute;            /* Place le bandeau par rapport au document */
+    position: relative;            /* Place le bandeau par rapport au document */
     left: 0;                       /* Aligne au bord gauche */
     right: 0;  
-    margin-top: 26rem;                    /* Aligne au bord droit */
+                       /* Aligne au bord droit */
   
     .info-item {
       font-size: 1.2rem;           /* Taille du texte */
@@ -138,11 +138,12 @@
         }
       }
     }
-
+    
     .description-container,
     .additional-info-container {
       width: 100%;
       margin-top: 20px;
+      padding: 20px;
     }
   }
 
@@ -150,7 +151,7 @@
   .description-container .description-content {
     font-size: 1.1rem;
     width: 100%;
-    margin-top: 6rem;           /* Ajuste la marge supérieure pour espacer davantage */
+    margin-top: 2rem;           /* Ajuste la marge supérieure pour espacer davantage */
     margin-bottom: 20px;
     
     p {
@@ -165,6 +166,10 @@
       }
     }
   }
+  
+    .additional-description-content {
+      padding: 20px;
+    }
 
   /* Informations additionnelles */
   .additional-info-container {
@@ -172,6 +177,7 @@
       display: flex;
       flex-wrap: wrap;             /* Permet d'afficher plusieurs éléments côte à côte */
       gap: 20px;
+      padding: 20px;
 
       .info-block {
         flex: 1;
@@ -186,7 +192,8 @@
 
   /* Contenu vidéo */
   .video-container {
-    margin-top: 30px;
+    margin-top: 10px;
+    padding: 20px;
     iframe {
       width: 100%;
       max-width: 560px;
@@ -197,28 +204,22 @@
 
 @media (max-width: 937px) {
   .machine-details {
-    .info-banner {
-       margin-top: 47rem; 
        .info-item {
        font-size: 1rem;
        }
      }
     }
-}
+
 
 @media (max-width: 673px) {
-  .machine-details {
-  .info-banner {
-     margin-top: 50rem;
-   }
+  .info-banner .info-item {
+    font-size: 0.4rem;
   }
  }
 
  @media (max-width: 555px) {
   .machine-details {
-  .info-banner {
-     margin-top: 55rem;
-    }
+  
     .machine-details, .info-banner .info-item {
       font-size: 0.7rem;
     }
@@ -227,9 +228,7 @@
 
   @media (max-width: 477px) {
     .machine-details {
-    .info-banner {
-       margin-top: 45rem;
-      }
+    
       .image-container {
         flex: 1;
         margin: 0;
@@ -254,10 +253,7 @@
   .machine-details {
     flex-direction: column;     /* Colonne pour les écrans plus petits */
     padding: 15px;
-    .info-banner {
-      margin-top: 44rem;
-      
-     }
+    
   }
 }
 @media (max-width: 477px) {
@@ -312,7 +308,6 @@
     flex-direction: column;
 
     .info-banner {
-      margin-top: 40rem; /* Ajuste la marge selon ton contenu */
       font-size: 0.2rem; /* Réduit la taille du texte */
     }
     .machine-details, .info-banner .info-item {
@@ -418,4 +413,5 @@
     }
   }
 }
+
 
