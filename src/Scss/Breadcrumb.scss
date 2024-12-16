@@ -27,4 +27,14 @@
       align-self: center; // S'assure que l'élément est centré par rapport au parent
     }
   }
+
+@media (max-width: 400px) {
+  font-size: 0.8rem; // Réduit la taille globale de la police
+  li {
+    margin-right: 4px; // Réduit l'espacement entre les éléments
+    &:not(:last-child)::after {
+      margin-left: 4px; // Réduit l'espace autour du "/"
+    }
+  }
+}
 }

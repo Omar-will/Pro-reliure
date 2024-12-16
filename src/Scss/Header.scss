@@ -1,8 +1,8 @@
 /* Styles de la barre de navigation */
 .navbar {
-  background: white;
+  background-color: rgb(233, 233, 233);
   padding: 0;
-  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,9 +42,18 @@
   font-weight: 800;
 }
 
+.logo .reliure {
+  display: block; /* Nouvelle règle pour afficher sous la classe .pro */
+  color: black;
+  font-weight: normal; /* Poids normal pour la classe reliure */
+  margin-left: 0;
+  margin-top: -8px;
+}
+
 .logo {
   color: rgb(58, 58, 58); /* Couleur noire pour le reste */
 }
+
 
 .nav-links {
   list-style: none;
@@ -163,7 +172,7 @@
 
 .phone-contact {
   position: absolute; /* ou position: fixed */
-  right: 35%;
+  right: 0.1%;
   top: 3%;
   margin-right: 20px;
   font-size: 1rem;
@@ -173,8 +182,8 @@
 
 .showRoom{
   position: absolute; /* ou position: fixed */
-  right: 10px;
-  top: 3%;
+  right: 45px;
+  top: 6%;
   margin-right: 20px;
   font-size: 1rem;
   font-weight: 700;
@@ -245,14 +254,22 @@
 
   .showRoom, .phone-contact {
     font-size: 0.9rem;
-    color: black;
+
   }
   .phone-contact{
     position: absolute; /* ou position: fixed */
-    right: 10px;
-    top: 0;
+    right: 7px;
+    top: 100px;
     margin-right: 20px;
+    color: white;
     
+  }
+  .showRoom {
+    position: absolute; /* ou position: fixed */ 
+    top: 125px;
+    margin-right: 20px;
+    color: white;
+
   }
   
 
@@ -278,14 +295,27 @@
     margin-top: 5px;
   }
 }
+@media (max-width: 890px) {
+.logo {
+  top: 10px;
+  // margin-bottom: 4.5rem;
+}
+}
 
 /* Styles pour le menu en version mobile */
 @media (max-width: 768px) {
   .logo {
     font-family: Arial, sans-serif;
-    font-size: 15px; /* Ajustez selon vos besoins */
+    font-size: 17px; /* Ajustez selon vos besoins */
     font-weight: 900;
-    
+    margin-top: -5px;
+  }
+  .logo .reliure {
+    display: block; /* Nouvelle règle pour afficher sous la classe .pro */
+    color: black;
+    font-weight: normal; /* Poids normal pour la classe reliure */
+    margin-left: 0;
+    margin-top: -4px;
   }
   .nav-links {
     display: none; /* Cacher le menu par défaut */
@@ -309,12 +339,24 @@
   .hamburger {
     display: flex; /* Afficher le hamburger dans les petits écrans */
   }
+  .showRoom{
+    color: white;
+    top:100px;
+  }
+  .phone-contact{
+   top: 80px; 
+   color: white;
+  }
 }
-
-@media (max-width: 810px) {
-  .phone-contact {
-    font-size: 0.8rem;
-    font-weight: 800;
+@media (max-width: 550px) {
+  .showRoom{
+    font-size: 0.9rem;
+    color: white;
+    top:170px;
+  }
+  .phone-contact{
+   top: 150px; 
+   color: white;
   }
 }
 @media (max-width: 445px) {
@@ -330,13 +372,18 @@
   }
 }
 
-@media (max-width: 370px) {
-  .phone-contact {
+@media (max-width: 385px) {
+  .phone-contact, .showRoom {
     font-size: 0.6rem;
     font-weight: 800;
   }
   .showRoom {
-    top: 35px;  
     font-size: 0.6rem;
+    font-weight: 800;
+    margin-right: 10px;
   }
+  .nav-links a,
+.dropdown-button {
+  font-size: 1rem;
+}
 }

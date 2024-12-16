@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTruck, FaWrench, FaHeadset, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaTruck, FaWrench, FaHeadset, FaEnvelope, FaPhone, FaRegCopyright } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../Scss/Footer.scss';
 
@@ -39,6 +39,9 @@ const Footer = ({ setIsMenuOpen }) => {
       {/* <p className="phone-contact2">Contact par téléphone : 06 52 52 81 51</p> */}
     </div>
   </div>
+  <div className="footer-copyright">
+        <FaRegCopyright className="icon" /> 2024 Destructeurs-archives, tous droits réservés
+      </div>
 </footer>
 
   );

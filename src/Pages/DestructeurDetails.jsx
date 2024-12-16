@@ -213,7 +213,7 @@ const LocationDetails = () => {
 
       {/* Bannière d'informations */}
       <div className="info-banner">
-        <a href="#description-container" className="info-item">Description</a>
+        <a href="#description-container" className="info-item">Fonctionnalité</a>
         <a href="#additional-details-content" className="info-item">Caractéristiques</a>
         <a href="#video-container" className="info-item">Démonstration</a>
         {locationItem.pdfUrl && (

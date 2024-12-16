@@ -6,10 +6,13 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  width: 400px; /* Largeur par défaut pour les grands écrans */
-  margin-left: 20px;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  width: 40%; /* Largeur par défaut pour les grands écrans */
+  right: 0px;
+  margin: 1rem auto; /* Centre horizontalement */
+  margin-top: 1rem; /* Ajuste la position verticale */
+  position: absolute;
+  top: 20px; /* Remonte légèrement la barre */
+  left: 20px;
 }
 
 .search-form {
@@ -42,19 +45,40 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .search-bar {
+    display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  width: 60%; /* Largeur par défaut pour les grands écrans */
+  right: 0px;
+  margin: 1rem auto; /* Centre horizontalement */
+  margin-top: 1rem; /* Ajuste la position verticale */
+  position: absolute;
+  top: 20px; /* Remonte légèrement la barre */
+  left: 200px;
+  }
+  
+}
+
 @media (max-width: 768px) {
   .search-bar {
-    width: 90%; /* Ajustement de la largeur pour les écrans moyens */
-    margin-left: 10px; /* Réduction de la marge */
+    top: 3px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   .search-bar {
-    width: 90%; /* Ajustement de la largeur pour les petits écrans */
-    margin-left: 0; /* Suppression de la marge à gauche */
-    margin: 10px auto; /* Centrer la barre de recherche */
+    width: 90%; /* Largeur ajustée pour occuper presque toute la largeur */
+    position: relative; /* S'assure que la position respecte le flux normal */
+    left: 0; /* Se déplace tout à gauche */
+    top: -10px; /* Descend légèrement */
+    
   }
+
 
   .search-input {
     padding: 8px 10px; /* Réduction du padding pour les petits écrans */

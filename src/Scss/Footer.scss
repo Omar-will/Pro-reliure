@@ -34,6 +34,7 @@ footer {
   
   margin-left: 2rem; /* Réduit la marge gauche */
   align-items: center;
+  
 }
 
 .right-column {
@@ -152,6 +153,16 @@ a {
   margin-top: 5px; /* Réduit l'espace en haut */
 }
 
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+  .icon {
+    margin-right: 5px;
+    vertical-align: -1px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column; /* Passe en colonne pour les petits écrans */
@@ -201,5 +212,13 @@ a {
     margin-top: 1px; /* Réduit l'espacement en haut */
     font-size: 1.2rem; /* Diminue légèrement la taille du texte */
     order: 2; /* Assure la position après .left-column */
+  }
+}
+@media (max-width: 768px) {
+  .footer-container {
+    font-size: 0.8rem; 
+    .section.center-column {
+      margin-top: 1rem;
+    }
   }
 }
