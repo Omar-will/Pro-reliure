@@ -25,7 +25,7 @@
   /* Positionne les informations principales en haut à droite */
   .location-info {
     position: absolute; /* Permet de positionner à un endroit précis */
-    top: 220px;
+    top: 200px;
     right: 20px;
     text-align: right; /* Aligne le texte à droite */
     color: #871825;
@@ -144,7 +144,7 @@
     width: 100%;
     max-width: 350px;
     height: 420px;
-    margin-top: 10rem;
+    margin-top: 11.5rem;
     margin-bottom: 2rem;
     padding: 20px;
     margin-right: 1rem;
@@ -531,6 +531,9 @@
   font-size: 2.5rem;
   margin-top: 10px;
   color: black;
+}
+.location-info {
+  right: 0;
 }
 .image-thumbnails {
   display: flex;

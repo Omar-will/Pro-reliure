@@ -188,7 +188,7 @@ const Header = () => {
           </ul>
         </div>
         <p className="showRoom">contact@destructeurs-archives.fr</p>
-        <p className="phone-contact">Contact par téléphone : 06 52 52 81 51</p>
+        <p className="phone-contact">Contact : 06 52 52 81 51</p>
       </nav>
     </header>
   );

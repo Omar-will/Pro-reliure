@@ -31,10 +31,8 @@ footer {
 }
 
 .left-column {
-  
   margin-left: 2rem; /* Réduit la marge gauche */
   align-items: center;
-  
 }
 
 .right-column {
@@ -165,60 +163,33 @@ a {
 
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column; /* Passe en colonne pour les petits écrans */
-    gap: 10px;
-  }
-  .icon {
-    display: none; /* Masque uniquement les icônes */
-  }
-
-  .left-column {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Espacement entre les lignes */
-    order: 2;
+    align-items: flex-start; /* Aligne tous les éléments sur la gauche */
+    margin-left: 10px;
   }
-  
-  .left-column .icon-container {
+
+  .section.center-column {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    width: 100%; /* Occupe toute la largeur pour faciliter le centrage */
+    font-size: 1.4rem;
+    margin-top: -5px;
+    order: 1;
   }
-  
-  .left-column .icon-container:nth-child(1) {
-    margin-right: 20px; /* Centre la première ligne */
+  .left-column {
+    order: 1;
   }
-  
-  .left-column .icon-container:nth-child(2),
-  .left-column .icon-container:nth-child(3) {
-    margin-right: 20px; /* Ligne intermédiaire */
-  }
-  
-  .left-column .icon-container:nth-child(4),
-  .left-column .icon-container:nth-child(5) {
-    margin-right: 20px;/* Dernière ligne : alignement plein */
-  }
-  
 
+  .section {
+    text-align: left; /* Texte aligné à gauche */
+  }
+
+  .left-column,
   .right-column {
-    text-align: center; /* Centre le texte pour les petits écrans */
-    margin: 0; /* Supprime les marges inutiles */
-    
+    margin: 0; /* Supprime les marges */
   }
 
-  .center-column {
-    margin-top: 1px; /* Réduit l'espacement en haut */
-    font-size: 1.2rem; /* Diminue légèrement la taille du texte */
-    order: 2; /* Assure la position après .left-column */
+  .footer-copyright {
+    text-align: left; /* Alignement à gauche */
+    margin-left: 12px;
   }
 }
-@media (max-width: 768px) {
-  .footer-container {
-    font-size: 0.8rem; 
-    .section.center-column {
-      margin-top: 1rem;
-    }
-  }
-}
+

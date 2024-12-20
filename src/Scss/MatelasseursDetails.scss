@@ -188,10 +188,10 @@
     }
 
     .info-banner {
-      font-size: 1rem;
+      font-size: 1.2rem;
 
       .info-item {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
     }
   
@@ -255,9 +255,16 @@
       object-fit: contain;
     }
   }
+  .info-banner {
+    font-size: 1rem;
+
+    .info-item {
+      font-size: 1rem;
+    }
+  }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 570px) {
 .info-banner {
   .info-item {
     font-size: 0.6rem;

@@ -93,6 +93,7 @@
 
 .nav-links a {
   font-weight: 700;
+  font-size: 1.3rem;
 }
 
 /* État par défaut sans mouvement pour les éléments du menu déroulant */
@@ -112,7 +113,8 @@
 .dropdown-button {
   display: flex;
   align-items: center;
-  margin-bottom: 11px;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .arrow {
@@ -182,7 +184,7 @@
 
 .showRoom{
   position: absolute; /* ou position: fixed */
-  right: 45px;
+  right: 2px;
   top: 6%;
   margin-right: 20px;
   font-size: 1rem;
@@ -267,9 +269,8 @@
   .showRoom {
     position: absolute; /* ou position: fixed */ 
     top: 125px;
-    margin-right: 20px;
+    margin-right: 26px;
     color: white;
-
   }
   
 
@@ -353,10 +354,12 @@
     font-size: 0.9rem;
     color: white;
     top:170px;
+    margin-right: 10px;
   }
   .phone-contact{
    top: 150px; 
    color: white;
+   margin-right: 5px;
   }
 }
 @media (max-width: 445px) {

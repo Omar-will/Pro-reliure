@@ -252,7 +252,7 @@
 @media (max-width: 368px) {
   .machine-details {
     flex-direction: column;     /* Colonne pour les écrans plus petits */
-    padding: 15px;
+    // padding: 15px;
     
   }
 }
@@ -304,7 +304,7 @@
 }
 @media (max-width: 370px) {
   .machine-details {
-    padding: 10px;
+    // padding: 10px;
     flex-direction: column;
 
     .info-banner {
@@ -338,6 +338,7 @@
     .machine-info {
       width: 100%;
       padding-left: 0;
+      padding: 10px;
 
       .quote-button {
         width: 100%;
@@ -370,7 +371,7 @@
 
 @media (max-width: 280px) {
   .machine-details {
-    padding: 5px;
+    // padding: 5px;
 
     .image-container {
       max-width: 250px;
