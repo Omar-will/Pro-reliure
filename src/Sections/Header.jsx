@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import '../Scss/Header.scss';
 import SearchBar from '../Components/SearchBar';
@@ -81,6 +81,16 @@ const Header = () => {
       setIsDropdownOpen(false);
     }
   };
+
+  useEffect(() => {
+    const banner = document.querySelector(".banner");
+    if (isMenuOpen) {
+      banner.classList.add("force-visible");
+    } else {
+      banner.classList.remove("force-visible");
+    }
+  }, [isMenuOpen]);
+  
 
   const handleMouseLeave = () => {
     setIsDropdownOpen(false);

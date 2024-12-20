@@ -19,11 +19,11 @@ const Footer = ({ setIsMenuOpen }) => {
         <FaWrench className="icon" /> Installation et dépannage
       </div>
       <div className="icon-container">
-        <FaEnvelope className="icon" /> 
-        <a href="mailto:contact@proreliure.fr">contact@destructeurs-archives.fr</a>
+        <FaPhone className="icon" /> Contact : 06 52 52 81 51
       </div>
       <div className="icon-container">
-        <FaPhone className="icon" /> Contact par téléphone : 06 52 52 81 51
+        <FaEnvelope className="icon" /> 
+        <a href="mailto:contact@proreliure.fr">contact@destructeurs-archives.fr</a>
       </div>
     </div>
     <div className="section center-column">

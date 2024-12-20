@@ -93,7 +93,7 @@
 
 .nav-links a {
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 /* État par défaut sans mouvement pour les éléments du menu déroulant */
@@ -264,13 +264,14 @@
     top: 100px;
     margin-right: 20px;
     color: white;
-    
+   
   }
   .showRoom {
     position: absolute; /* ou position: fixed */ 
     top: 125px;
     margin-right: 26px;
     color: white;
+   
   }
   
 
@@ -290,6 +291,11 @@
     margin-bottom: 10px; /* Espacement entre les éléments du dropdown */
   }
 
+  .banner.force-visible {
+    position: fixed;
+    z-index: 1001; // Visible par-dessus .nav-links.active
+  }
+  
 
   .hamburger {
     display: flex; /* Afficher le hamburger dans les petits écrans */
