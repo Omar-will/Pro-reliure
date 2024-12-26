@@ -26,18 +26,18 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Accueil />} />
-          <Route path="/NosServices" element={<NosServices />} />
-          <Route path="/MatelasseurDeCartons" element={<MatelasseurDeCartons />} />
-          <Route path="/DestructeurDeDocuments/:category" element={<Machines />} />
-          <Route path="/DestructeurDeDocuments" element={<Machines />} />
-          <Route path="/SearchResults" element={<SearchResults />} /> 
+          <Route path="/nos-services" element={<NosServices />} />
+          <Route path="/matelasseur-de-cartons" element={<MatelasseurDeCartons />} />
+          <Route path="/destructeurs-de-documents/:category" element={<Machines />} />
+          {/* <Route path="/DestructeurDeDocuments" element={<Machines />} /> */}
+          <Route path="/search-results" element={<SearchResults />} /> 
           <Route path="/machines/:id" element={<MachineDetails />} />
           <Route path="/matelasseurs/:id" element={<MatelasseursDetails />} />
           <Route path="/location-destructeurs/:category" element={<LocationDestructeurs />} />
           <Route path="/location/destructeur/:id" element={<DestructeurDetails />} />
-          <Route path="/Utilisation" element={<Utilisation />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/utilisation" element={<Utilisation />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/conditions-generales-de-vente" element={<ConditionsGeneralesDeVente />} />
         </Routes>

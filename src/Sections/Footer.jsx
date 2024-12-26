@@ -31,9 +31,9 @@ const Footer = ({ setIsMenuOpen }) => {
         </div>
     {/* Colonne droite */}
     <div className="section right-column">
-      <Link to="/FAQ" onClick={() => setIsMenuOpen(false)}>FAQ</Link>
-      <Link to="/Contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-      <Link to="/Utilisation" onClick={() => setIsMenuOpen(false)}>Conseil d'experts</Link>
+      <Link to="/faq" onClick={() => setIsMenuOpen(false)}>FAQ</Link>
+      <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+      <Link to="/utilisation" onClick={() => setIsMenuOpen(false)}>Conseil d'experts</Link>
       <a href="/mentions-legales">Mentions légales</a>
       <a href="/conditions-generales-de-vente">Conditions générales de vente</a>
       {/* <p className="phone-contact2">Contact par téléphone : 06 52 52 81 51</p> */}
