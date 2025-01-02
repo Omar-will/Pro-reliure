@@ -65,6 +65,9 @@ const Machines = () => {
         <button className={`tab-button ${activeTab === 2 ? 'active' : ''}`} onClick={() => handleTabChange(2)}>
           2
         </button>
+        {/* <button className={`tab-button ${activeTab === 3 ? 'active' : ''}`} onClick={() => handleTabChange(3)}>
+          3
+        </button> */}
       </div>
 
       {activeTab === 1 && (

@@ -134,7 +134,7 @@ const Header = () => {
               onMouseLeave={handleMouseLeave}
             >
               <button className="dropdown-button">
-                Destructeurs de Documents
+                Destructeurs
                 <span className={`arrow ${isDropdownOpen ? 'up' : 'down'}`}></span>
               </button>
               {isDropdownOpen && (
@@ -144,6 +144,7 @@ const Header = () => {
                     <li onClick={() => handleCategoryClick('toutes-les-machines')}>Toutes les machines</li>
                     <li onClick={() => handleCategoryClick('destructeurs-de-bureau')}>Destructeurs de bureau</li>
                     <li onClick={() => handleCategoryClick('destructeurs-de-forte-capacité')}>Destructeurs de forte capacité</li>
+                    {/* <li onClick={() => handleCategoryClick('destructeurs-de-données')}>Destructeurs de supports de données numériques</li> */}
                   </div>
                   <div className="dropdown-section">
                     <li className="dropdown-title">Niveaux de sécurité</li>
@@ -168,6 +169,15 @@ const Header = () => {
                     <li onClick={() => handleCategoryClick('fil-de-ligature')}>Fil de ligature</li>
                     <li onClick={() => handleCategoryClick('lingettes-de-nettoyage')}>Lingettes de nettoyage</li>
                   </div>
+                  <div className="dropdown-section">
+                    <li className="dropdown-title">Destructeurs de supports de données numériques</li>
+                    <li onClick={() => handleCategoryClick('destructeurs-de-données')}>Toutes les machines</li>
+                  </div>
+                  <div className="dropdown-sections">
+                    <li className="dropdown-title">Marques</li>
+                    <li onClick={() => handleCategoryClick('ideal')}>Ideal</li>
+                    <li onClick={() => handleCategoryClick('hsm')}>Hsm</li>
+                  </div>
                 </ul>
               )}
             </li>
@@ -182,7 +192,7 @@ const Header = () => {
                 <span className={`arrow ${isLocationDropdownOpen ? 'up' : 'down'}`}></span>
               </button>
               {isLocationDropdownOpen && (
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menus">
                   <div className="dropdown-section">
                     <li className="dropdown-title">Destructeurs de documents</li>
                     <li onClick={() => handleCategoryClick('Toutes-les-Locations')}>Toutes les locations</li>
