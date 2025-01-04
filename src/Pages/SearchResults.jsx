@@ -114,7 +114,7 @@ const SearchResults = () => {
                 <img src={result.image} alt={result.name} className="result-image" />
                 <h3>{result.name}</h3>
                 <p>{result.description}</p>
-                <p>Stock: {result.stock}</p>
+                {/* <p>Stock: {result.stock}</p> */}
                 <Link to={linkTo}>
                   <button>Voir le produit</button>
                 </Link>

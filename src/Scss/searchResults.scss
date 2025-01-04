@@ -45,13 +45,14 @@
 
     &:last-of-type {
       font-weight: bold;
-      color: #ed1a3b; // Couleur pour le stock
+      color: #060606; // Couleur pour le stock
     }
   }
 
   button {
     padding: 10px 15px;
     font-size: 16px;
+    margin: 10px;
     color: #fff;
     background-color: #6bd183;
     border: none;

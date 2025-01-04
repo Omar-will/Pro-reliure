@@ -54,7 +54,7 @@ const LocationDestructeurs = () => {
       <img src={item.image} alt={item.name} className="destructeur-image" />
       <h3>{item.name}</h3>
       <p>{item.description}</p>
-      <p>Stock: {item.stock}</p>
+      {/* <p>Stock: {item.stock}</p> */}
       <Link to={`/location/destructeur/${item.id}`}>
         <button>Voir les détails</button>
       </Link>

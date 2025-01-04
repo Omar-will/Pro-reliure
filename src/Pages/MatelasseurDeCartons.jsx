@@ -75,7 +75,7 @@ const Matelasseurs = () => {
               <img src={matelasseur.image} alt={matelasseur.name} className="matelasseur-image" />
               <h3>{matelasseur.name}</h3>
               <p>{matelasseur.description}</p>
-              <p>Stock: {matelasseur.stock}</p>
+              {/* <p>Stock: {matelasseur.stock}</p> */}
               <Link to={`/matelasseurs/${matelasseur.id}`}>
                 <button>Voir le produit</button>
               </Link>
@@ -91,7 +91,7 @@ const Matelasseurs = () => {
               <img src={matelasseur.image} alt={matelasseur.name} className="matelasseur-image" />
               <h3>{matelasseur.name}</h3>
               <p>{matelasseur.description}</p>
-              <p>Stock: {matelasseur.stock}</p>
+              {/* <p>Stock: {matelasseur.stock}</p> */}
               <Link to={`/matelasseurs/${matelasseur.id}`}>
                 <button>Voir le produit</button>
               </Link>

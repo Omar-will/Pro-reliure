@@ -77,7 +77,7 @@ const Machines = () => {
               <img src={machine.image} alt={machine.name} className="machine-image" />
               <h3>{machine.name}</h3>
               <p>{machine.description}</p>
-              <p>Stock: {machine.stock}</p>
+              {/* <p>Stock: {machine.stock}</p> */}
               <Link to={`/machines/${machine.id}`}>
                 <button>Voir le produit</button>
               </Link>
@@ -93,7 +93,7 @@ const Machines = () => {
               <img src={machine.image} alt={machine.name} className="machine-image" />
               <h3>{machine.name}</h3>
               <p>{machine.description}</p>
-              <p>Stock: {machine.stock}</p>
+              {/* <p>Stock: {machine.stock}</p> */}
               <Link to={`/machines/${machine.id}`}>
                 <button>Voir le produit</button>
               </Link>
