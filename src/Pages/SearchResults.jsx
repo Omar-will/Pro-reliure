@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { Helmet } from "react-helmet-async";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import '../Scss/searchResults.scss';
@@ -96,6 +97,13 @@ const SearchResults = () => {
 
   return (
     <div className="search-results">
+      <Helmet>
+        <title>Résultats de recherche</title>
+        <meta
+          name="description"
+          content="Consultez les résultats de votre recherche pour trouver des destructeurs de bureau, matelasseurs, ou services de location adaptés à vos besoins."
+        />
+      </Helmet>
       {finalResults.length > 0 ? (
         <div className="results-container">
           {finalResults.map(result => {

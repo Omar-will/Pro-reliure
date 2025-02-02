@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { Helmet } from 'react-helmet-async';
 import '../Scss/MachineDetails.scss';
 
 // Configuration Firebase
@@ -30,7 +31,7 @@ const MachineDetails = () => {
       const machineSnapshot = await getDoc(machineDoc);
       if (machineSnapshot.exists()) {
         setMachine(machineSnapshot.data());
-        setSelectedImage(machineSnapshot.data().images[0]); // Définit l'image sélectionnée par défaut
+        setSelectedImage(machineSnapshot.data().images[0]); 
       } else {
         console.log("Machine non trouvée");
       }
@@ -45,6 +46,11 @@ const MachineDetails = () => {
 
   return (
     <div className="machine-details">
+      {/* Meta description dynamique */}
+      <Helmet>
+        <title>{machine.name} - Détails</title>
+        <meta name="description" content={machine.metaDescription || "Découvrez cette machine en détail."} />
+      </Helmet>
       {/* Grande image principale */}
       <div className="image-container">
         <img src={selectedImage} alt={machine.name} className="machine-image" />

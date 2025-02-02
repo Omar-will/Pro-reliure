@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from "react-helmet-async";
 import '../Scss/MentionsLegales.scss'; 
 
 const MentionsLegales = () => {
   return (
     <div className="mentions-legales">
+      <Helmet>
+        <meta name="description" content="Mentions légales de ProReliure SAS pour le site internet destructeurs-archives.fr, informations légales, droits de propriété intellectuelle, protection des données personnelles, etc." />
+        <title>Mentions Légales</title>
+      </Helmet>
       <h1>Mentions Légales</h1>
       <p><strong>IDENTITÉ DE L’ÉDITEUR DU SITE INTERNET</strong></p>
       <p>L’éditeur du site Internet https://www.destructeurs-archives.fr est la société PRORELIURE SAS</p>

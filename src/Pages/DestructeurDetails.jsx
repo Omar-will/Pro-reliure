@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { Helmet } from 'react-helmet-async';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import emailjs from 'emailjs-com';
@@ -134,6 +135,11 @@ const LocationDetails = () => {
 
       {locationItem && (
         <>
+        {/* Meta description dynamique */}
+                    <Helmet>
+                      <title>{locationItem.name} - Détails</title>
+                      <meta name="description" content={locationItem.metaDescription || "Découvrez cette machine en détail."} />
+                    </Helmet>
           {/* Image principale */}
           <div className="image-container">
             <img src={selectedImage} alt={locationItem.name} className="location-image" />

@@ -1,9 +1,17 @@
 import React from 'react';
+import { Helmet } from "react-helmet-async";
 import '../Scss/Utilisation.scss';
 
 const Utilisation = () => {
   return (
     <div className="ideal-machines">
+      <Helmet>
+        <title>Utilisation des Destructeurs de Bureau et Grande Capacité</title>
+        <meta
+          name="description"
+          content="Découvrez l'utilisation des destructeurs de bureau et à grande capacité IDEAL, avec des fonctionnalités telles que EASY-SWITCH, systèmes anti-bourrage et plus."
+        />
+      </Helmet>
       <h1>Destructeurs de Bureau et Grande Capacité</h1>
 
       <section className="office-shredders">

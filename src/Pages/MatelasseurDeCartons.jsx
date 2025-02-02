@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from "react-helmet-async";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import '../Scss/MatelasseurDeCartons.scss';
@@ -59,6 +60,13 @@ const Matelasseurs = () => {
 
   return (
     <div className="matelasseurs-container">
+      <Helmet>
+        <title>Matelasseurs de Cartons - Proreliure</title>
+        <meta
+          name="description"
+          content="Découvrez notre sélection de matelasseurs de cartons professionnels. Optimisez le recyclage et la réutilisation de vos emballages en toute simplicité."
+        />
+      </Helmet>
       <div className="tabs">
         <button className={`tab-button ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabChange(1)}>
           1

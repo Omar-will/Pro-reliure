@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from "react-helmet-async";
 import '../Scss/ConditionsGeneralesDeVente.scss';
 
 const ConditionsGeneralesDeVente = () => {
   return (
     <div className="conditions-generales">
+      <Helmet>
+        <meta name="description" content="Consultez les conditions générales de vente de PRORELIURE S.A.S, incluant les informations sur les prix, paiements, délais de livraison, garanties et plus encore." />
+        <title>Conditions Générales de Vente | PRORELIURE S.A.S</title>
+      </Helmet>
       <h1>Conditions Générales de Vente</h1>
 
       <p><strong>PRORELIURE S.A.S - CONDITIONS GÉNÉRALES DE VENTE 2022</strong></p>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";
 import '../Scss/DestructeurDeDocuments.scss';
 
 // Configuration Firebase
@@ -58,6 +59,13 @@ const Machines = () => {
 
   return (
     <div className="machines-container">
+      <Helmet>
+        <title>Destructeurs de Documents - Proreliure</title>
+        <meta
+          name="description"
+          content="Découvrez notre gamme de destructeurs de documents professionnels. Trouvez le destructeur de bureau adaptée à vos besoins pour garantir la sécurité de vos données sensibles."
+        />
+      </Helmet>
       <div className="tabs">
         <button className={`tab-button ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabChange(1)}>
           1

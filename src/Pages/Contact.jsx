@@ -1,5 +1,6 @@
 import React from "react";
 import emailjs from "emailjs-com";
+import { Helmet } from "react-helmet-async";
 import "../Scss/Contact.scss";
 
 const Contact = () => {
@@ -28,6 +29,13 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+       <Helmet>
+        <title>Contact - Proreliure</title>
+        <meta
+          name="description"
+          content="Contactez Proreliure pour en savoir plus sur nos services de destruction de documents et notre service après-vente dédié."
+        />
+      </Helmet>
       <div className="service-info">
         <h3>Services après-vente</h3>
         <p>Chez Proreliure, nous comprenons l'importance de la sécurité et de l'efficacité dans la gestion de vos documents sensibles.</p>

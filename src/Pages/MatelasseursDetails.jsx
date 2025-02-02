@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { Helmet } from 'react-helmet-async';
 import '../Scss/MatelasseursDetails.scss';
 
 // Configuration Firebase
@@ -45,6 +46,11 @@ const MatelasseursDetails = () => {
 
   return (
     <div className="matelasseur-details">
+      {/* Meta description dynamique */}
+            <Helmet>
+              <title>{matelasseur.name} - Détails</title>
+              <meta name="description" content={matelasseur.metaDescription || "Découvrez cette machine en détail."} />
+            </Helmet>
       {/* Grande image principale */}
       <div className="image-container">
         <img src={selectedImage} alt={matelasseur.name} className="matelasseur-image" />

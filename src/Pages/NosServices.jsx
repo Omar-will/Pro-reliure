@@ -1,10 +1,18 @@
 import React from 'react';
 import '../Scss/NosServices.scss';
+import { Helmet } from "react-helmet-async";
 import { Link } from 'react-router-dom'; // Assurez-vous que le routage est configuré
 
 const NosServices = () => {
   return (
     <div className="nos-services">
+      <Helmet>
+        <title>Nos Services - Assistance, Location et Pièces Détachées</title>
+        <meta
+          name="description"
+          content="Découvrez nos services d'assistance et dépannage, location de destructeurs de documents et gestion de pièces détachées pour vos équipements de bureau."
+        />
+      </Helmet>
       <div className="content">
 
         {/* Section Assistance et Dépannage */}
